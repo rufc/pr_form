@@ -1,0 +1,954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Грудная клетка</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+<link rel="stylesheet" type="text/css" href="msfmultiselect.css"/>
+<script src="msfmultiselect.js"></script>
+
+
+
+
+
+<script>
+        function testVariable() {
+            debugger
+
+			let result_proekcia = ""
+			if (document.getElementById("proekcia").length > 0) {
+                for (let i=0; i < document.getElementById("proekcia").length; i++){
+                    let option = document.getElementById("proekcia").options[i];
+					  if (option.selected) {
+                        result_proekcia = option.value;
+                    }
+                }
+            }	
+			
+			
+			
+			let result_risunok = ""
+			if (document.getElementById("risunok").length > 0) {
+                for (let i=0; i < document.getElementById("risunok").length; i++){
+                    let option = document.getElementById("risunok").options[i];
+					  if (option.selected) {
+                        result_risunok = option.value;
+                    }
+                }
+            }	
+			
+			
+			
+			let result_zaschet = ""
+			if (document.getElementById("zaschet").length > 0) {
+                for (let i=0; i < document.getElementById("zaschet").length; i++){
+                    let option = document.getElementById("zaschet").options[i];
+					  if (option.selected) {
+                        result_zaschet += option.value + ", ";
+                    }
+                }
+            }
+			
+
+				
+				
+			let result_korni = ""
+			if (document.getElementById("korni").length > 0) {
+                for (let i=0; i < document.getElementById("korni").length; i++){
+                    let option = document.getElementById("korni").options[i];
+					  if (option.selected) {
+                        result_korni += option.value + ", ";
+                    }
+                }
+            }
+			
+			
+			
+			
+						let result_polya_inf = ""
+			if (document.getElementById("polya_inf").length > 0) {
+                for (let i=0; i < document.getElementById("polya_inf").length; i++){
+                    let option = document.getElementById("polya_inf").options[i];
+					  if (option.selected) {
+                        result_polya_inf = option.value + ". ";
+                    }
+                }
+            }	
+			
+			
+			
+			
+			
+			let result_polya = ""
+			if (document.getElementById("polya").length > 0) {
+                for (let i=0; i < document.getElementById("polya").length; i++){
+                    let option = document.getElementById("polya").options[i];
+					  if (option.selected) {
+                        result_polya = option.value + ", ";
+                    }
+                }
+            }
+
+
+
+			let result_kupol = ""
+			if (document.getElementById("kupol").length > 0) {
+                for (let i=0; i < document.getElementById("kupol").length; i++){
+                    let option = document.getElementById("kupol").options[i];
+					  if (option.selected) {
+                        result_kupol += option.value + ", ";
+                    }
+                }
+            }
+			
+			
+			
+			let result_kupol2 = ""
+			if (document.getElementById("kupol2").length > 0) {
+                for (let i=0; i < document.getElementById("kupol2").length; i++){
+                    let option = document.getElementById("kupol2").options[i];
+					  if (option.selected) {
+                        result_kupol2 = option.value + ". ";
+                    }
+                }
+            }
+			
+			
+		
+
+			let result_sinus1 = ""
+			if (document.getElementById("sinus1").length > 0) {
+                for (let i=0; i < document.getElementById("sinus1").length; i++){
+                    let option = document.getElementById("sinus1").options[i];
+					  if (option.selected) {
+                        result_sinus1 += option.value + ", ";
+                    }
+                }
+            }		
+			
+			
+			
+						let result_sinus2 = ""
+			if (document.getElementById("sinus2").length > 0) {
+                for (let i=0; i < document.getElementById("sinus2").length; i++){
+                    let option = document.getElementById("sinus2").options[i];
+					  if (option.selected) {
+                        result_sinus2 = option.value + ". ";
+                    }
+                }
+            }	
+			
+
+
+			let result_cardio = ""
+			if (document.getElementById("cardio").length > 0) {
+                for (let i=0; i < document.getElementById("cardio").length; i++){
+                    let option = document.getElementById("cardio").options[i];
+					  if (option.selected) {
+                        result_cardio = option.value;
+                    }
+                }
+            }	
+			
+			
+			let result_cardio2 = ""
+			if (document.getElementById("cardio2").length > 0) {
+                for (let i=0; i < document.getElementById("cardio2").length; i++){
+                    let option = document.getElementById("cardio2").options[i];
+					  if (option.selected) {
+                        result_cardio2 = option.value + ". ";
+                    }
+                }
+            }	
+			
+			
+
+			let result_aorta = ""
+			if (document.getElementById("aorta").length > 0) {
+                for (let i=0; i < document.getElementById("aorta").length; i++){
+                    let option = document.getElementById("aorta").options[i];
+					  if (option.selected) {
+                        result_aorta = option.value + ". ";
+                    }
+                }
+            }	
+			
+			
+			
+			let result_bones = ""
+			if (document.getElementById("bones").length > 0) {
+                for (let i=0; i < document.getElementById("bones").length; i++){
+                    let option = document.getElementById("bones").options[i];
+					  if (option.selected) {
+                        result_bones += option.value + ", ";
+                    }
+                }
+            }	
+			
+			
+			
+
+			let result_add = ""
+			if (document.getElementById("add").length > 0) {
+                for (let i=0; i < document.getElementById("add").length; i++){
+                    let option = document.getElementById("add").options[i];
+					  if (option.selected) {
+                        result_add += option.value + ". ";
+                    }
+                }
+            }	
+			
+			
+
+			let result_conclusion = ""
+			if (document.getElementById("conclusion").length > 0) {
+                for (let i=0; i < document.getElementById("conclusion").length; i++){
+                    let option = document.getElementById("conclusion").options[i];
+					  if (option.selected) {
+                        result_conclusion = option.value + ". ";
+                    }
+                }
+            }	
+			
+			
+			
+			let result_rg = ""
+			if (document.getElementById("rg").length > 0) {
+                for (let i=0; i < document.getElementById("rg").length; i++){
+                    let option = document.getElementById("rg").options[i];
+					  if (option.selected) {
+                        result_rg += option.value + ", ";
+                    }
+                }
+            }	
+
+		
+			
+				if (result_risunok < 1) {
+					result_risunok = "не изменён";
+					result_zaschet = "";
+				}
+				
+				if (result_risunok == "без особенностей") {
+					result_zaschet = "";
+				}
+				
+				if (result_zaschet < 1) {
+					result_risunok += ". ";
+				} else {result_risunok += ", ";}
+			
+			
+				if (result_zaschet) {
+					result_risunok += "изменён за счёт: "
+				}
+				
+				
+				if (result_rg) {
+					result_conclusion = "рентген-признаки ";
+				}
+				
+				if (result_polya < 1 && result_polya_inf < 1) {
+					result_polya = "без видимых очаговых и инфильтративных изменений. ";
+				} else if ( result_polya_inf < 1) {
+					result_polya_inf = "без видимых инфильтративных изменений. ";
+				} else if ( result_polya < 1) {
+					result_polya = "без видимых очаговых изменений, ";
+				}
+				
+
+	
+				if (result_kupol < 1) {
+					result_kupol = "чёткий, ровный";
+					result_kupol2 = "";
+				}
+				
+				if (result_kupol2 < 1) {
+					result_kupol = result_kupol.trimEnd() + ". ";
+				}
+				
+		
+				if (result_sinus1 < 1) {
+					result_sinus1 = "свободные в видимых отделах";
+					result_sinus2 = "";
+				}
+				
+				if (result_sinus2 < 1) {
+					result_sinus1 = result_sinus1.trimEnd() + ". ";
+				}
+				
+				
+				if (result_cardio < 1) {
+					result_cardio = "не расширены";
+					result_cardio2 = "";
+				}
+				
+				if (result_cardio2 < 1) {
+					result_cardio += ". ";
+				} else {result_cardio += " ";}
+
+				if (result_aorta < 1) {
+					result_aorta = "не изменена. ";
+				}
+				
+				if (result_bones < 1) {
+					result_bones = "без особенностей. ";
+				}
+				
+				if (result_conclusion < 1) {
+					result_conclusion = "органы грудной полости без видимой патологии. ";
+				}
+				
+
+
+
+			
+			document.getElementById("show").innerText = result_proekcia + " " + "лёгочный рисунок " + result_risunok + result_zaschet.replace(/,(?![^,]*,)/m, '.') + "Корни лёгких " + result_korni.replace(/,(?![^,]*,)/m, '.') + "Лёгочные поля: " + result_polya + result_polya_inf + "Купол диафрагмы " + result_kupol.replace(/,(?![^,]*,)/m, '') + result_kupol2 + "Плевро-диафрагмальные синусы: " + result_sinus1.replace(/,(?![^,]*,)/m, '') + result_sinus2 + "Границы сердца " + result_cardio + result_cardio2 + "Аорта " + result_aorta + "Костные структуры: " + result_bones.replace(/,(?![^,]*,)/m, '.') + result_add + "Заключение: " + result_conclusion + result_rg.replace(/,(?![^,]*,)/m, '.');
+			
+			
+        }
+
+
+		
+    </script>
+
+
+
+
+
+</head>
+<body id="main_body" >
+	
+	
+	<div id="form_container">
+	
+	<div id="form_item_1">
+	
+	
+
+		
+		
+		<form id="form_48871" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Грудная клетка</h2>
+			<p><!-- This is your form description. Click here to edit. --></p>
+		</div>		
+
+
+
+
+<div class="my_container">
+
+  <div class="my_card_label">
+    <p>На обзорной.. </p>
+  </div>
+
+<div class="my_card">
+<select class="form-control_dropdown" id="proekcia" name="proekcia"> 
+<option value="На обзорной рентгенограмме органов грудной клетки в прямой проекции" selected >РГ в прямой проекции</option>
+<option value="На обзорных рентгенограммах органов грудной клетки в двух проекциях" >РГ в двух проекциях</option>
+<option value="На обзорной флюорограмме органов грудной клетки в прямой проекции" >ФЛГ в прямой проекции</option>
+<option value="На обзорных флюорограммах органов грудной клетки в двух проекциях" >ФЛГ в двух проекциях</option>
+</select>
+</div>
+
+  
+</div>
+
+
+
+
+
+<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Лёгочный рисунок</p>
+  </div>
+
+<div class="my_card">
+
+<select id="risunok" name="risunok" class="form-control_mid" multiple > 
+<option value="без особенностей" >БЕЗ ОСОБ</option>
+<option value="компримирован" >КОМП</option>
+<option value="усилен в прикорневых отделах" >УСИЛ</option>
+		</select>
+</div>
+
+
+
+
+<div class="my_card">
+
+    <select id="zaschet" name="zaschet" multiple >
+	  <option value="умеренного пневмофиброза в базальных отделах">УМ пнев</option>
+      <option value="небольшого пневмофиброза в базальных отделах">НЕБ пнев</option>
+      <option value="центрального венозного застоя" >ЗАСТОЙ</option>
+    </select>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Корни лёгких</p>
+  </div>
+
+  <div class="my_card">
+	  <select id="korni" name="korni" multiple >
+      <option value="не расширены" selected >не расш</option>
+      <option value="умеренно расширены">ум расш</option>
+      <option value="расширены">расш</option>
+	  <option value="структурные" selected >струк</option>
+	  <option value="структура сохранена">струк сохр</option>
+      <option value="малоструктурные">малостр</option>
+      <option value="не структурные">не струк</option>
+      <option value="уплотнены">уплотнены</option>
+      <option value="с нечеткими и неровными контурами">нечеткие неровные</option>
+      <option value="с полицикличными контурами">полицикл</option>
+    </select>
+	
+
+  </div>
+
+
+
+</div>
+
+
+
+
+<div class="my_container">
+
+
+  <div class="my_card_label">
+    <p>Лёгочные поля</p>
+  </div>
+  
+
+
+  <div class="my_card">
+        <select id="polya" name="polya" class="form-control_mini" multiple >
+      <option value="плотная очаговая тень в среднем отделе правого легкого">плот очаг</option>
+      <option value="очаговое затенение в проекции s8 левого легкого">очаг затен</option>
+    </select>
+
+  </div>
+  
+
+    <div class="my_card">
+        <select id="polya_inf" name="polya_inf" class="form-control_mid" multiple >
+      <option value="сгущение в медиобазальном отделе левого легкого">сгущ</option>
+      <option value="неоднородное снижение пневматизации в проекции s6 левого легкого">нео сниж пневм</option>
+      <option value="неоднородные уплотнения легочной ткани в проекции s6 правого легкого">нео уплот</option>
+    </select>
+
+  </div>
+  
+ 
+  
+
+</div>
+
+
+
+
+
+<div class="my_container">
+
+
+  <div class="my_card_label">
+    <p>Купол диафрагмы</p>
+  </div>
+  
+  
+  <div class="my_card">
+      <select id="kupol" name="kupol" class="form-control" multiple >
+	  <option value="достаточно четкий, ровный" >ДОСТ</option>
+      <option value="нечеткий, неровный">неч нер</option>
+	        <option value="затенен">ЗАТ</option>
+      <option value="с признаками незначительной релаксации" >незнач РЕЛ</option>
+      <option value="с признаками релаксации" >РЕЛ</option>
+      <option value="с признаками плевро-диафрагмальных спаек" >СПА</option>
+    </select>
+  </div>
+  
+  
+    <div class="my_card">
+      <select id="kupol2" name="kupol2" class="form-control_mini" multiple>
+      <option value="справа" >справа</option>
+	  <option value="слева">слева</option>
+	  </select>
+</div>
+  
+  
+  
+ </div>
+
+
+
+
+
+
+<div class="my_container">
+
+
+  <div class="my_card_label">
+    <p>Плевро-<br><br><br><br><br>диафрагмальные<br><br><br><br><br>синусы</p>
+  </div>
+  
+  <div class="my_card">
+      <select id="sinus1" name="sinus1" class="form-control" multiple>
+	  <option value="облитерирован латеральный">облитерирован</option>
+	  <option value="облитерированы">облитерироваНЫ</option>
+	  <option value="затенен латеральный">затенен</option>
+	  <option value="затенены">затенеНЫ</option>
+	  <option value="затенены латеральный и задний">затенеНЫ ЛАТ и ЗАД</option>
+	  </select>
+</div>
+
+
+  <div class="my_card">
+      <select id="sinus2" name="sinus2" class="form-control_mini" multiple>
+      <option value="справа" >справа</option>
+	  <option value="слева">слева</option>
+	  </select>
+</div>
+  
+  
+  
+  </div>
+		
+		
+
+		
+<div class="my_container">
+
+
+  <div class="my_card_label">
+    <p>Границы сердца</p>
+  </div>
+  
+    <div class="my_card">
+	
+
+<select id="cardio" name="cardio" class="form-control_mid" multiple > 
+<option value="умеренно расширены" >УМ</option>
+<option value="расширены" >РАС</option>
+<option value="выражено расширены" >ВЫР</option>
+		</select>
+	
+	
+  </div>
+  
+  
+    <div class="my_card">
+      <select id="cardio2" name="cardio2" class="form-control_mini" multiple>
+      <option value="влево" >влево</option>
+	  <option value="в поперечнике">в поперечнике</option>
+	  </select>
+</div>
+  
+  
+  
+  </div>
+		
+		
+		
+		
+	<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Аорта</p>
+  </div>
+  
+    <div class="my_card">	
+		<select class="form-control" id="aorta" name="aorta" multiple > 
+<option value="соответствует возрасту" >СВ</option>
+<option value="удлинена" >УД</option>
+<option value="фрагментарно кальцинирована" >фраг</option>
+<option value="удлинена, фрагментарно кальцинирована" >УД фраг</option>
+<option value="удлинена, кальцинирована" >УД кальц</option>
+		</select>
+
+</div>
+
+
+</div>
+		
+		
+		
+			<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Костные структуры</p>
+  </div>
+  
+    <div class="my_card">	
+	<select id="bones" name="bones" class="form-control" multiple="multiple">
+      <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">ДЕГ</option>
+      <option value="грудной отдел позвоночника легко сколиотически деформирован">лег СКОЛ гоп</option>
+      <option value="грудной отдел позвоночника сколиотически деформирован">СКОЛ гоп</option>
+      <option value="грудопоясничный  отдел позвоночника сколиотически деформирован">СКОл гпоп</option>
+      <option value="консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева">КОНС пер-мы</option>
+      <option value="консолидированный перелом VI ребра справа">КОНС пер</option>
+    </select>
+	</div>
+
+</div>	
+		
+
+<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Дополнения</p>
+  </div>
+  
+    <div class="my_card">
+	<select id="add" name="add" class="form-control" multiple>
+      <option value="С обеих сторон уплотнена апикальная плевра">С обеих сторон уплотнена апикальная плевра</option>
+      <option value="С обеих сторон неравномерно уплотнена апикальная плевра">С обеих сторон неравномерно уплотнена апикальная плевра</option>
+      <option value="С обеих сторон затенена апикальная плевра">С обеих сторон затенена апикальная плевра</option>
+      <option value="Обызвествеление реберных хрящей">Обызвествеление реберных хрящей</option>
+      <option value="Состояние после оперативного вмешательства">Состояние после оперативного вмешательства</option>
+    </select>
+	</div>
+	
+	</div>	
+		
+
+
+<div class="my_container">
+
+  <div class="my_card_label">
+    <p>Заключение<p/>
+  </div>
+  
+      <div class="my_card">	
+		<select class="form-control" id="conclusion" name="conclusion" multiple > 
+<option value="рентген-данных за патологические изменения в легких не получено" >ПАТ</option>
+<option value="рентген-данных за свежие патологические изменения в легких не получено" >свеж ПАТ</option>
+<option value="органы грудной полости в пределах возрастной нормы" >ПРЕД</option>
+<option value="рентген-признаки возрастных изменений органов грудной полости" >ВОЗ</option>
+<option value="рентген-данных за инфильтративные изменения в легких не получено" >ИНФ не получ</option>
+
+<option value="по сравнению с рентген-картиной от 24.10.23 положительная динамика за счет" >ПОЛОЖ дин</option>
+
+<option value="по сравнению с рентген-картиной от 24.10.23 отрицательная динамика за счет" >ОТРИЦ дин</option>
+
+<option value="по сравнению с рентген-картиной от 24.10.23 без существенной динамики" >БЕЗ СУЩ дин</option>
+		</select>
+
+</div>
+
+</div>
+	
+
+
+<div class="my_container">
+
+
+	<div class="my_card_label">
+    <p>Рентген-признаки</p>
+	</div>
+	
+	<div class="my_card">
+	  <select id="rg" name="rg" class="form-control" multiple>
+      <option value="умеренной кардиомегалии">ум кард</option>
+      <option value="кардиомегалии">кард</option>
+      <option value="центрального вензного застоя">цвз</option>
+      <option value="расширения корня правого легкого">рас корня ПРАВ</option>
+      <option value="расширения и малоструктурности корня правого легкого">рас мало корня ПРАВ</option>
+      <option value="возрастных изменений органов грудной полости">ВОЗ</option>
+      <option value="поствоспалительных изменений органов грудной полости">ПОСТ</option>
+      <option value="поствоспалительных и возрастных изменений органов грудной полости">ПОСТ ВОЗ</option>
+    </select>
+	</div>
+		
+
+
+  <div class="my_card_label">
+    <p align="center">Рекомендовано<p/>
+  </div>	
+		
+	<div class="my_card">
+	  <select id="recom" name="recom" class="form-control" multiple>
+      <option value="рентген-снимок в фазу вдоха">на вдохе</option>
+      <option value="рентген-снимок в правой боковой проекции">правый бок</option>
+      <option value="рентген-снимок в левой боковой проекции">левый бок</option>
+      <option value="соотнести с клинико-лабораторными данными">соотнести с клд</option>
+      <option value="МСКТ органов грудной полости в плановом порядке">МСКТ планово</option>
+      <option value="МСКТ органов грудной полости">МСКТ</option>
+    </select>
+	</div>	
+		
+	
+  </div>
+  
+ 
+  </form>	
+		
+		
+	</div>
+		
+
+	</div>
+	
+
+	
+	
+	
+	<div id="form_item_2">
+	
+
+
+	
+<div class="page">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group"><a href="form.html" class="menu__link r-link text-underlined">ОГК</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #2</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #3</a></li>
+	  <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #4</a></li>
+	  <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #5</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+
+	<li class="buttons">
+	<input type="hidden" name="form_id" value="48871" />
+	<input id="saveForm" class="button_text" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+	</li>
+	
+	
+		
+		<textarea variable="yname" id="show" class="mytextarea" rows="20" cols="70"></textarea>
+
+
+
+
+	
+	
+
+	</div>
+	
+
+	
+	
+	</div>
+	
+
+
+	</body>
+	
+	<script>
+	
+		var zaschet = new MSFmultiSelect(
+    document.querySelector('#zaschet'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );	
+  
+  
+  		var korni = new MSFmultiSelect(
+    document.querySelector('#korni'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );	
+
+  
+  
+      		var kupol = new MSFmultiSelect(
+    document.querySelector('#kupol'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );	
+  
+  
+        		var sinus1 = new MSFmultiSelect(
+    document.querySelector('#sinus1'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );	
+  
+  
+            		var aorta = new MSFmultiSelect(
+    document.querySelector('#aorta'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );
+  
+  
+          		var bones = new MSFmultiSelect(
+    document.querySelector('#bones'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );	
+  
+  
+  
+            		var add = new MSFmultiSelect(
+    document.querySelector('#add'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );
+  
+  
+    var conclusion = new MSFmultiSelect(
+    document.querySelector('#conclusion'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );
+  
+  
+  
+  
+              		var rg = new MSFmultiSelect(
+    document.querySelector('#rg'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );
+  
+  
+  
+                		var recom = new MSFmultiSelect(
+    document.querySelector('#recom'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '250px',
+      height: '48px',
+      // readOnly: true,
+      onChange:function(checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      //readOnly:true,
+      //autoHide: false
+    }
+  );
+  
+	
+	</script>
+	
+	
+	
+</html>
