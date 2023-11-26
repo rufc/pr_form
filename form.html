@@ -5,8 +5,7 @@
 <title>Грудная клетка</title>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
 <script type="text/javascript" src="view.js"></script>
-<link rel="stylesheet" type="text/css" href="msfmultiselect.css"/>
-<script src="msfmultiselect.js"></script>
+
 
 
 
@@ -15,302 +14,81 @@
 <script>
         function testVariable() {
             debugger
+            var strText = document.getElementById("element_1").value;
+            var strText1 = document.getElementById("element_2").value;
+			<!-- var strMult4 = document.getElementById("li_4").value; -->
+			
 
-			let result_proekcia = ""
-			if (document.getElementById("proekcia").length > 0) {
-                for (let i=0; i < document.getElementById("proekcia").length; i++){
-                    let option = document.getElementById("proekcia").options[i];
-					  if (option.selected) {
-                        result_proekcia = option.value;
-                    }
-                }
-            }	
+            document.getElementById("p1").innerHTML = strText;
+            document.getElementById("p2").innerHTML = strText1;
 			
 			
 			
-			let result_risunok = ""
-			if (document.getElementById("risunok").length > 0) {
-                for (let i=0; i < document.getElementById("risunok").length; i++){
-                    let option = document.getElementById("risunok").options[i];
-					  if (option.selected) {
-                        result_risunok = option.value;
-                    }
-                }
-            }	
-			
-			
-			
-			let result_zaschet = ""
-			if (document.getElementById("zaschet").length > 0) {
-                for (let i=0; i < document.getElementById("zaschet").length; i++){
-                    let option = document.getElementById("zaschet").options[i];
-					  if (option.selected) {
-                        result_zaschet += option.value + ", ";
-                    }
+			let projekciyax =
+                document.getElementsByName('projekciya');
+            let result_projekciya = "";
+            for (var i = 0; i < projekciyax.length; i++) {
+                if (projekciyax[i].checked) {
+                    result_projekciya = projekciyax[i].value;
+						
                 }
             }
 			
 
-				
-				
-			let result_korni = ""
-			if (document.getElementById("korni").length > 0) {
-                for (let i=0; i < document.getElementById("korni").length; i++){
-                    let option = document.getElementById("korni").options[i];
-					  if (option.selected) {
-                        result_korni += option.value + ", ";
-                    }
+			document.getElementById("p_projekciya").innerHTML = result_projekciya;
+			
+			
+			
+			
+			let radiotestx =
+                document.getElementsByName('radiotest');
+            let result1 = "";
+            for (var i = 0; i < radiotestx.length; i++) {
+                if (radiotestx[i].checked) {
+                    result1 = radiotestx[i].value;
+						
                 }
             }
-			
-			
-			
-			
-						let result_polya_inf = ""
-			if (document.getElementById("polya_inf").length > 0) {
-                for (let i=0; i < document.getElementById("polya_inf").length; i++){
-                    let option = document.getElementById("polya_inf").options[i];
-					  if (option.selected) {
-                        result_polya_inf = option.value + ". ";
-                    }
-                }
-            }	
-			
-			
-			
-			
-			
-			let result_polya = ""
-			if (document.getElementById("polya").length > 0) {
-                for (let i=0; i < document.getElementById("polya").length; i++){
-                    let option = document.getElementById("polya").options[i];
-					  if (option.selected) {
-                        result_polya = option.value + ", ";
-                    }
-                }
-            }
-
-
-
-			let result_kupol = ""
-			if (document.getElementById("kupol").length > 0) {
-                for (let i=0; i < document.getElementById("kupol").length; i++){
-                    let option = document.getElementById("kupol").options[i];
-					  if (option.selected) {
-                        result_kupol += option.value + ", ";
-                    }
-                }
-            }
-			
-			
-			
-			let result_kupol2 = ""
-			if (document.getElementById("kupol2").length > 0) {
-                for (let i=0; i < document.getElementById("kupol2").length; i++){
-                    let option = document.getElementById("kupol2").options[i];
-					  if (option.selected) {
-                        result_kupol2 = option.value + ". ";
-                    }
-                }
-            }
-			
+			document.getElementById("p4").innerHTML = result1;
 			
 		
-
-			let result_sinus1 = ""
-			if (document.getElementById("sinus1").length > 0) {
-                for (let i=0; i < document.getElementById("sinus1").length; i++){
-                    let option = document.getElementById("sinus1").options[i];
-					  if (option.selected) {
-                        result_sinus1 += option.value + ", ";
-                    }
+            var checkboxes =
+                document.getElementsByName('test_el');
+            var result = "";
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    result += checkboxes[i].value
+                        + ", ";
+						
                 }
-            }		
+            }
+			document.getElementById("p5").innerHTML = result;
 			
 			
 			
-						let result_sinus2 = ""
-			if (document.getElementById("sinus2").length > 0) {
-                for (let i=0; i < document.getElementById("sinus2").length; i++){
-                    let option = document.getElementById("sinus2").options[i];
-					  if (option.selected) {
-                        result_sinus2 = option.value + ". ";
-                    }
-                }
-            }	
-			
-
-
-			let result_cardio = ""
-			if (document.getElementById("cardio").length > 0) {
-                for (let i=0; i < document.getElementById("cardio").length; i++){
-                    let option = document.getElementById("cardio").options[i];
-					  if (option.selected) {
-                        result_cardio = option.value;
-                    }
-                }
-            }	
 			
 			
-			let result_cardio2 = ""
-			if (document.getElementById("cardio2").length > 0) {
-                for (let i=0; i < document.getElementById("cardio2").length; i++){
-                    let option = document.getElementById("cardio2").options[i];
-					  if (option.selected) {
-                        result_cardio2 = option.value + ". ";
-                    }
-                }
-            }	
-			
-			
-
-			let result_aorta = ""
-			if (document.getElementById("aorta").length > 0) {
-                for (let i=0; i < document.getElementById("aorta").length; i++){
-                    let option = document.getElementById("aorta").options[i];
-					  if (option.selected) {
-                        result_aorta = option.value + ". ";
-                    }
-                }
-            }	
-			
-			
-			
-			let result_bones = ""
-			if (document.getElementById("bones").length > 0) {
-                for (let i=0; i < document.getElementById("bones").length; i++){
-                    let option = document.getElementById("bones").options[i];
-					  if (option.selected) {
-                        result_bones += option.value + ", ";
-                    }
-                }
-            }	
-			
-			
-			
-
-			let result_add = ""
-			if (document.getElementById("add").length > 0) {
-                for (let i=0; i < document.getElementById("add").length; i++){
-                    let option = document.getElementById("add").options[i];
-					  if (option.selected) {
-                        result_add += option.value + ". ";
-                    }
-                }
-            }	
-			
-			
-
-			let result_conclusion = ""
-			if (document.getElementById("conclusion").length > 0) {
-                for (let i=0; i < document.getElementById("conclusion").length; i++){
-                    let option = document.getElementById("conclusion").options[i];
-					  if (option.selected) {
-                        result_conclusion = option.value + ". ";
-                    }
-                }
-            }	
-			
-			
-			
-			let result_rg = ""
-			if (document.getElementById("rg").length > 0) {
-                for (let i=0; i < document.getElementById("rg").length; i++){
-                    let option = document.getElementById("rg").options[i];
-					  if (option.selected) {
-                        result_rg += option.value + ", ";
-                    }
-                }
-            }	
-
-		
-			
-				if (result_risunok < 1) {
-					result_risunok = "не изменён";
-					result_zaschet = "";
-				}
-				
-				if (result_risunok == "без особенностей") {
-					result_zaschet = "";
-				}
-				
-				if (result_zaschet < 1) {
-					result_risunok += ". ";
-				} else {result_risunok += ", ";}
-			
-			
-				if (result_zaschet) {
-					result_risunok += "изменён за счёт: "
-				}
-				
-				
-				if (result_rg) {
-					result_conclusion = "рентген-признаки ";
-				}
-				
-				if (result_polya < 1 && result_polya_inf < 1) {
-					result_polya = "без видимых очаговых и инфильтративных изменений. ";
-				} else if ( result_polya_inf < 1) {
-					result_polya_inf = "без видимых инфильтративных изменений. ";
-				} else if ( result_polya < 1) {
-					result_polya = "без видимых очаговых изменений, ";
-				}
-				
-
-	
-				if (result_kupol < 1) {
-					result_kupol = "чёткий, ровный";
-					result_kupol2 = "";
-				}
-				
-				if (result_kupol2 < 1) {
-					result_kupol = result_kupol.trimEnd() + ". ";
-				}
-				
-		
-				if (result_sinus1 < 1) {
-					result_sinus1 = "свободные в видимых отделах";
-					result_sinus2 = "";
-				}
-				
-				if (result_sinus2 < 1) {
-					result_sinus1 = result_sinus1.trimEnd() + ". ";
-				}
-				
-				
-				if (result_cardio < 1) {
-					result_cardio = "не расширены";
-					result_cardio2 = "";
-				}
-				
-				if (result_cardio2 < 1) {
-					result_cardio += ". ";
-				} else {result_cardio += " ";}
-
-				if (result_aorta < 1) {
-					result_aorta = "не изменена. ";
-				}
-				
-				if (result_bones < 1) {
-					result_bones = "без особенностей. ";
-				}
-				
-				if (result_conclusion < 1) {
-					result_conclusion = "органы грудной полости без видимой патологии. ";
-				}
-				
-
-
-
-			
-			document.getElementById("show").innerText = result_proekcia + " " + "лёгочный рисунок " + result_risunok + result_zaschet.replace(/,(?![^,]*,)/m, '.') + "Корни лёгких " + result_korni.replace(/,(?![^,]*,)/m, '.') + "Лёгочные поля: " + result_polya + result_polya_inf + "Купол диафрагмы " + result_kupol.replace(/,(?![^,]*,)/m, '') + result_kupol2 + "Плевро-диафрагмальные синусы: " + result_sinus1.replace(/,(?![^,]*,)/m, '') + result_sinus2 + "Границы сердца " + result_cardio + result_cardio2 + "Аорта " + result_aorta + "Костные структуры: " + result_bones.replace(/,(?![^,]*,)/m, '.') + result_add + "Заключение: " + result_conclusion + result_rg.replace(/,(?![^,]*,)/m, '.');
+			document.getElementById("show").innerText = result_projekciya + " " + result1 + result;  
 			
 			
         }
-
-
 		
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -319,401 +97,596 @@
 </head>
 <body id="main_body" >
 	
+	<!-- <img id="top" src="top.png" alt=""> -->
 	
 	<div id="form_container">
 	
 	<div id="form_item_1">
 	
-	
-
-		
-		
+		<h1><a>Грудная клетка</a></h1>
 		<form id="form_48871" class="appnitro"  method="post" action="">
 					<div class="form_description">
 			<h2>Грудная клетка</h2>
-			<p><!-- This is your form description. Click here to edit. --></p>
-		</div>		
+			<p><!-- description --></p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">На обзорной.. </label>
+		<span>
+			<input id="element_1_1" name="element_1" class="element radio" type="radio" value="На обзорной рентгенограмме органов грудной клетки в прямой проекции" checked />
+<label class="choice" for="element_1_1">в прямой проекции</label>
+<input id="element_1_2" name="element_1" class="element radio" type="radio" value="На обзорных рентгенограммах органов грудной клетки в двух проекциях" />
+<label class="choice" for="element_1_2">в двух проекциях</label>
 
+		</span> 
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">Лёгочный рисунок </label>
+		<span>
+			<input id="element_2_1" name="element_2" class="element radio" type="radio" value="1" checked />
+<label class="choice" for="element_2_1">не изменён</label>
+<input id="element_2_2" name="element_2" class="element radio" type="radio" value="2" />
+<label class="choice" for="element_2_2">без особенностей</label>
+<input id="element_2_3" name="element_2" class="element radio" type="radio" value="3" />
+<label class="choice" for="element_2_3">изменён</label>
 
-
-
-<div class="my_container">
-
-  <div class="my_card_label">
-    <p>На обзорной.. </p>
-  </div>
-
-<div class="my_card">
-<select class="form-control_dropdown" id="proekcia" name="proekcia"> 
-<option value="На обзорной рентгенограмме органов грудной клетки в прямой проекции" selected >РГ в прямой проекции</option>
-<option value="На обзорных рентгенограммах органов грудной клетки в двух проекциях" >РГ в двух проекциях</option>
-<option value="На обзорной флюорограмме органов грудной клетки в прямой проекции" >ФЛГ в прямой проекции</option>
-<option value="На обзорных флюорограммах органов грудной клетки в двух проекциях" >ФЛГ в двух проекциях</option>
-</select>
-</div>
-
-  
-</div>
-
-
-
-
-
-<div class="my_container">
-
-  <div class="my_card_label">
-    <p>Лёгочный рисунок</p>
-  </div>
-
-<div class="my_card">
-
-<select id="risunok" name="risunok" class="form-control_mid" multiple > 
-<option value="без особенностей" >БЕЗ ОСОБ</option>
-<option value="компримирован" >КОМП</option>
-<option value="усилен в прикорневых отделах" >УСИЛ</option>
-		</select>
-</div>
-
-
-
-
-<div class="my_card">
-
-    <select id="zaschet" name="zaschet" multiple >
-	  <option value="умеренного пневмофиброза в базальных отделах">УМ пнев</option>
-      <option value="небольшого пневмофиброза в базальных отделах">НЕБ пнев</option>
-      <option value="центрального венозного застоя" >ЗАСТОЙ</option>
+		</span> 
+		</li>		
+		
+		
+		
+		
+<!-- 		<li id="li_3" >
+		<label class="description" for="element_3">за счёт </label>
+		<span>
+			<input id="element_3_1" name="element_3_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_1">усиления в прикорневых отделах</label>
+<input id="element_3_3" name="element_3_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_3">умеренного пневмофиброза в базальных отделах</label>
+<input id="element_3_2" name="element_3_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_2">небольшого пневмофиброза в базальных отделах</label>
+<input id="element_3_4" name="element_3_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_4">центрального венозного застоя</label>
+<input id="element_3_5" name="element_3_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_5">интерстициального компонента</label>
+<input id="element_3_6" name="element_3_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_3_6">компримирован</label>
+		</span> 
+		</li> -->
+		
+		
+		
+<div class="#">
+  <label class="description" for="izmenen">за счёт..</label>
+  <div class="#">
+    <select id="izmenen" name="izmenen" class="form-control" multiple="multiple">
+      <option value="усиления в прикорневых отделах">усиления</option>
+      <option value="умеренного пневмофиброза в базальных отделах">умеренного пневмофиброза</option>
+      <option value="небольшого пневмофиброза в базальных отделах">небольшого пневмофиброза</option>
+      <option value="центрального венозного застоя">центрального застоя</option>
+      <option value="интерстициального компонента">интерстициального</option>
+      <option value="компримирован">компримирован</option>
     </select>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-<div class="my_container">
-
-  <div class="my_card_label">
-    <p>Корни лёгких</p>
   </div>
-
-  <div class="my_card">
-	  <select id="korni" name="korni" multiple >
-      <option value="не расширены" selected >не расш</option>
-      <option value="умеренно расширены">ум расш</option>
-      <option value="расширены">расш</option>
-	  <option value="структурные" selected >струк</option>
-	  <option value="структура сохранена">струк сохр</option>
-      <option value="малоструктурные">малостр</option>
-      <option value="не структурные">не струк</option>
+</div>
+		
+		
+		
+		
+		
+		
+<!-- 		<li id="li_4" >
+		<label class="description" for="element_4">Корни лёгких </label>
+		<span>
+			<input id="element_4_1" name="element_4_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_4_1">не расширены, структурны</label>
+<input id="element_4_2" name="element_4_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_2">не расширены, структура сохранена</label>
+<input id="element_4_3" name="element_4_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_3">умеренно расширены</label>
+<input id="element_4_4" name="element_4_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_4">расширены</label>
+<input id="element_4_5" name="element_4_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_5">малоструктурны</label>
+<input id="element_4_6" name="element_4_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_6">не структурны</label>
+<input id="element_4_7" name="element_4_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_7">уплотнены</label>
+<input id="element_4_8" name="element_4_8" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_8">уплотнены</label>
+<input id="element_4_9" name="element_4_9" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_9">с полицикличными контурами</label>
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		<div class="form-group">
+  <label class="description" for="korni">Корни лёгких</label>
+  <div class="#">
+    <select id="korni" name="korni" class="form-control" multiple="multiple">
+      <option value="не расширены, структурны" selected >не расширены, структурны</option>
+      <option value="не расширены, структура сохранена">не расширены, структура сохранена</option>
+      <option value="умеренно расширены">умеренно расширены</option>
+      <option value="расширены">расширены</option>
+      <option value="малоструктурны">малоструктурны</option>
+      <option value="не структурны">не структурны</option>
       <option value="уплотнены">уплотнены</option>
-      <option value="с нечеткими и неровными контурами">нечеткие неровные</option>
-      <option value="с полицикличными контурами">полицикл</option>
-    </select>
-	
-
-  </div>
-
-
-
-</div>
-
-
-
-
-<div class="my_container">
-
-
-  <div class="my_card_label">
-    <p>Лёгочные поля</p>
-  </div>
-  
-
-
-  <div class="my_card">
-        <select id="polya" name="polya" class="form-control_mini" multiple >
-      <option value="плотная очаговая тень в среднем отделе правого легкого">плот очаг</option>
-      <option value="очаговое затенение в проекции s8 левого легкого">очаг затен</option>
-    </select>
-
-  </div>
-  
-
-    <div class="my_card">
-        <select id="polya_inf" name="polya_inf" class="form-control_mid" multiple >
-      <option value="сгущение в медиобазальном отделе левого легкого">сгущ</option>
-      <option value="неоднородное снижение пневматизации в проекции s6 левого легкого">нео сниж пневм</option>
-      <option value="неоднородные уплотнения легочной ткани в проекции s6 правого легкого">нео уплот</option>
-    </select>
-
-  </div>
-  
- 
-  
-
-</div>
-
-
-
-
-
-<div class="my_container">
-
-
-  <div class="my_card_label">
-    <p>Купол диафрагмы</p>
-  </div>
-  
-  
-  <div class="my_card">
-      <select id="kupol" name="kupol" class="form-control" multiple >
-	  <option value="достаточно четкий, ровный" >ДОСТ</option>
-      <option value="нечеткий, неровный">неч нер</option>
-	        <option value="затенен">ЗАТ</option>
-      <option value="с признаками незначительной релаксации" >незнач РЕЛ</option>
-      <option value="с признаками релаксации" >РЕЛ</option>
-      <option value="с признаками плевро-диафрагмальных спаек" >СПА</option>
+      <option value="с нечеткими и неровными контурами">с нечеткими и неровными контурами</option>
+      <option value="с полицикличными контурами">с полицикличными контурами</option>
     </select>
   </div>
-  
-  
-    <div class="my_card">
-      <select id="kupol2" name="kupol2" class="form-control_mini" multiple>
-      <option value="справа" >справа</option>
-	  <option value="слева">слева</option>
-	  </select>
-</div>
-  
-  
-  
- </div>
-
-
-
-
-
-
-<div class="my_container">
-
-
-  <div class="my_card_label">
-    <p>Плевро-<br><br><br><br><br>диафрагмальные<br><br><br><br><br>синусы</p>
-  </div>
-  
-  <div class="my_card">
-      <select id="sinus1" name="sinus1" class="form-control" multiple>
-	  <option value="облитерирован латеральный">облитерирован</option>
-	  <option value="облитерированы">облитерироваНЫ</option>
-	  <option value="затенен латеральный">затенен</option>
-	  <option value="затенены">затенеНЫ</option>
-	  <option value="затенены латеральный и задний">затенеНЫ ЛАТ и ЗАД</option>
-	  </select>
-</div>
-
-
-  <div class="my_card">
-      <select id="sinus2" name="sinus2" class="form-control_mini" multiple>
-      <option value="справа" >справа</option>
-	  <option value="слева">слева</option>
-	  </select>
-</div>
-  
-  
-  
-  </div>
-		
-		
-
-		
-<div class="my_container">
-
-
-  <div class="my_card_label">
-    <p>Границы сердца</p>
-  </div>
-  
-    <div class="my_card">
-	
-
-<select id="cardio" name="cardio" class="form-control_mid" multiple > 
-<option value="умеренно расширены" >УМ</option>
-<option value="расширены" >РАС</option>
-<option value="выражено расширены" >ВЫР</option>
-		</select>
-	
-	
-  </div>
-  
-  
-    <div class="my_card">
-      <select id="cardio2" name="cardio2" class="form-control_mini" multiple>
-      <option value="влево" >влево</option>
-	  <option value="в поперечнике">в поперечнике</option>
-	  </select>
-</div>
-  
-  
-  
-  </div>
-		
-		
-		
-		
-	<div class="my_container">
-
-  <div class="my_card_label">
-    <p>Аорта</p>
-  </div>
-  
-    <div class="my_card">	
-		<select class="form-control" id="aorta" name="aorta" multiple > 
-<option value="соответствует возрасту" >СВ</option>
-<option value="удлинена" >УД</option>
-<option value="фрагментарно кальцинирована" >фраг</option>
-<option value="удлинена, фрагментарно кальцинирована" >УД фраг</option>
-<option value="удлинена, кальцинирована" >УД кальц</option>
-		</select>
-
-</div>
-
-
 </div>
 		
 		
 		
-			<div class="my_container">
+		
+		
+		
+<!-- 		<li id="li_5" >
+		<label class="description" for="element_5">Лёгочные поля </label>
+		<span>
+			<input id="element_5_1" name="element_5_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_5_1">без видимых очаговых и инфильтративных изменений</label>
+<input id="element_5_2" name="element_5_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_2">без видимых очаговых изменений</label>
+<input id="element_5_3" name="element_5_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_3">без видимых инфильтративных изменений</label>
+<input id="element_5_4" name="element_5_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_4">очаговое затенение в проекции s8 левого легкого</label>
+<input id="element_5_5" name="element_5_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_5">неоднородное снижение пневматизации в проекции s6 левого легкого</label>
+<input id="element_5_6" name="element_5_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_6">неоднородные уплотнения легочной ткани в проекции s6 правого легкого</label>
+<input id="element_5_7" name="element_5_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_5_7">плотная очаговая тень в среднем отделе правого легкого</label>
 
-  <div class="my_card_label">
-    <p>Костные структуры</p>
-  </div>
-  
-    <div class="my_card">	
-	<select id="bones" name="bones" class="form-control" multiple="multiple">
-      <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">ДЕГ</option>
-      <option value="грудной отдел позвоночника легко сколиотически деформирован">лег СКОЛ гоп</option>
-      <option value="грудной отдел позвоночника сколиотически деформирован">СКОЛ гоп</option>
-      <option value="грудопоясничный  отдел позвоночника сколиотически деформирован">СКОл гпоп</option>
-      <option value="консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева">КОНС пер-мы</option>
-      <option value="консолидированный перелом VI ребра справа">КОНС пер</option>
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		
+	<div class="form-group">
+  <label class="description" for="polya">Лёгочные поля</label>
+  <div class="#">
+    <select id="polya" name="polya" class="form-control" multiple="multiple">
+      <option value="без видимых очаговых и инфильтративных изменений" selected >без видимых очаговых и инфильтративных изменений</option>
+      <option value="без видимых очаговых изменений">без видимых очаговых изменений</option>
+      <option value="без видимых инфильтративных изменений">без видимых инфильтративных изменений</option>
+      <option value="сгущение в медиобазальном отделе левого легкого">сгущение</option>
+      <option value="неоднородное снижение пневматизации в проекции s6 левого легкого">неоднородное снижение пневматизации</option>
+      <option value="неоднородные уплотнения легочной ткани в проекции s6 правого легкого">неоднородные уплотнения легочной ткани</option>
+      <option value="плотная очаговая тень в среднем отделе правого легкого">плотная очаговая тень</option>
+      <option value="очаговое затенение в проекции s8 левого легкого">очаговое затенение</option>
     </select>
-	</div>
-
+  </div>
 </div>	
 		
+		
+		
+		
+		
+		
+		
+		
+		<!-- <li id="li_6" > -->
+		<!-- <label class="description" for="element_6">Купол диафрагмы </label> -->
+		<!-- <span> -->
+			<!-- <input id="element_6_1" name="element_6_1" class="element checkbox" type="checkbox" value="1" checked="checked"/> -->
+<!-- <label class="choice" for="element_6_1">четкий, ровный</label> -->
+<!-- <input id="element_6_2" name="element_6_2" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_2">достаточно четкий, ровный</label> -->
+<!-- <input id="element_6_3" name="element_6_3" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_3">нечеткий, неровный</label> -->
+<!-- <input id="element_6_4" name="element_6_4" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_4">справа нечеткий, неровный</label> -->
+<!-- <input id="element_6_5" name="element_6_5" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_5">слева нечеткий, неровный</label> -->
+<!-- <input id="element_6_6" name="element_6_6" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_6">с признаками незначительной релаксации</label> -->
+<!-- <input id="element_6_7" name="element_6_7" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_7">с признаками релаксации</label> -->
+<!-- <input id="element_6_8" name="element_6_8" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_6_8">с признаками плевро-диафрагмальных спаек</label> -->
 
-<div class="my_container">
-
-  <div class="my_card_label">
-    <p>Дополнения</p>
+		<!-- </span>  -->
+		<!-- </li> -->
+		
+		
+		
+		
+		
+		
+		<div class="form-group">
+  <label class="description" for="kupol">Купол диафрагмы</label>
+  <div class="col-md-4">
+    <select id="kupol" name="kupol" class="form-control" multiple="multiple">
+      <option value="четкий, ровный" selected >четкий, ровный</option>
+      <option value="достаточно четкий, ровный">достаточно четкий, ровный</option>
+      <option value="нечеткий, неровный">нечеткий, неровный</option>
+      <option value="справа нечеткий, неровный">справа нечеткий, неровный</option>
+      <option value="слева нечеткий, неровный">слева нечеткий, неровный</option>
+      <option value="с признаками незначительной релаксации">с признаками незначительной релаксации</option>
+      <option value="с признаками релаксации">с признаками релаксации</option>
+      <option value="с признаками плевро-диафрагмальных спаек">с признаками плевро-диафрагмальных спаек</option>
+    </select>
   </div>
-  
-    <div class="my_card">
-	<select id="add" name="add" class="form-control" multiple>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- <li id="li_7" > -->
+		<!-- <label class="description" for="element_7">Плевро-диафрагмальные синусы </label> -->
+		<!-- <span> -->
+			<!-- <input id="element_7_1" name="element_7_1" class="element checkbox" type="checkbox" value="1" checked="checked"/> -->
+<!-- <label class="choice" for="element_7_1">свободные в видимых отделах</label> -->
+<!-- <input id="element_7_2" name="element_7_2" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_2">облитерированы</label> -->
+<!-- <input id="element_7_3" name="element_7_3" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_3">затенены латеральный и задний реберно-диафрагмальные синусы справа</label> -->
+<!-- <input id="element_7_4" name="element_7_4" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_4">затенены латеральный и задний реберно-диафрагмальные синусы слева</label> -->
+<!-- <input id="element_7_5" name="element_7_5" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_5">затенен латеральный справа</label> -->
+<!-- <input id="element_7_6" name="element_7_6" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_6">затенен латеральный слева</label> -->
+<!-- <input id="element_7_7" name="element_7_7" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_7">облитерирован латеральный справа</label> -->
+<!-- <input id="element_7_8" name="element_7_8" class="element checkbox" type="checkbox" value="1" /> -->
+<!-- <label class="choice" for="element_7_8">облитерирован латеральный слева</label> -->
+
+		<!-- </span>  -->
+		<!-- </li> -->
+		
+		
+		
+		
+		
+		
+	<div class="form-group">
+  <label class="description" for="sinus">Плевро-диафрагмальные синусы</label>
+  <div class="col-md-4">
+    <select id="sinus" name="sinus" class="form-control" multiple="multiple">
+      <option value="свободные в видимых отделах" selected >свободные в видимых отделах</option>
+      <option value="облитерированы">облитерированы</option>
+      <option value="затенены латеральный и задний реберно-диафрагмальные синусы справа">затенены латеральный и задний справа</option>
+      <option value="затенены латеральный и задний реберно-диафрагмальные синусы слева">затенены латеральный и задний синусы слева</option>
+      <option value="затенен латеральный справа">затенен латеральный справа</option>
+      <option value="затенен латеральный слева">затенен латеральный слева</option>
+      <option value="облитерирован латеральный справа">облитерирован латеральный справа</option>
+      <option value="облитерирован латеральный слева">облитерирован латеральный слева</option>
+    </select>
+  </div>
+</div>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<li id="li_8" >
+		<label class="description" for="element_8">Границы сердца </label>
+		<span>
+			<input id="element_8_1" name="element_8" class="element radio" type="radio" value="1" checked="checked"/>
+<label class="choice" for="element_8_1">не расширены</label>
+<input id="element_8_2" name="element_8" class="element radio" type="radio" value="2" />
+<label class="choice" for="element_8_2">умеренно расширены в поперечнике</label>
+<input id="element_8_3" name="element_8" class="element radio" type="radio" value="3" />
+<label class="choice" for="element_8_3">выражено расширены в поперечнике</label>
+<input id="element_8_4" name="element_8" class="element radio" type="radio" value="4" />
+<label class="choice" for="element_8_4">резко расширены в поперечнике</label>
+<input id="element_8_5" name="element_8" class="element radio" type="radio" value="5" />
+<label class="choice" for="element_8_5">умеренно расширены влево</label>
+<input id="element_8_6" name="element_8" class="element radio" type="radio" value="6" />
+<label class="choice" for="element_8_6">минимально расширены влево</label>
+<input id="element_8_7" name="element_8" class="element radio" type="radio" value="7" />
+<label class="choice" for="element_8_7">выражено расширены влево</label>
+<input id="element_8_8" name="element_8" class="element radio" type="radio" value="8" />
+<label class="choice" for="element_8_8">резко расширены влево</label>
+
+		</span> 
+		</li>		<li id="li_9" >
+		<label class="description" for="element_9">Аорта </label>
+		<span>
+			<input id="element_9_1" name="element_9" class="element radio" type="radio" value="1" checked="checked"/>
+<label class="choice" for="element_9_1">не изменена</label>
+<input id="element_9_2" name="element_9" class="element radio" type="radio" value="2" />
+<label class="choice" for="element_9_2">соответствует возрасту</label>
+<input id="element_9_3" name="element_9" class="element radio" type="radio" value="3" />
+<label class="choice" for="element_9_3">удлинена</label>
+<input id="element_9_4" name="element_9" class="element radio" type="radio" value="4" />
+<label class="choice" for="element_9_4">фрагментарно кальцинирована</label>
+<input id="element_9_5" name="element_9" class="element radio" type="radio" value="5" />
+<label class="choice" for="element_9_5">удлинена, фрагментарно кальцинирована</label>
+<input id="element_9_6" name="element_9" class="element radio" type="radio" value="6" />
+<label class="choice" for="element_9_6">удлинена, кальцинирована</label>
+
+		</span> 
+		</li>
+		
+		
+		
+		
+		
+<!-- 		<li id="li_10" >
+		<label class="description" for="element_10">Костные структуры </label>
+		<span>
+			<input id="element_10_1" name="element_10_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_10_1">без особенностей</label>
+<input id="element_10_2" name="element_10_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_2">дегенеративно-дистрофические изменения грудного отдела позвоночника</label>
+<input id="element_10_3" name="element_10_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_3">грудной отдел позвоночника легко сколиотически деформирован</label>
+<input id="element_10_4" name="element_10_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_4">грудной отдел позвоночника сколиотически деформирован</label>
+<input id="element_10_5" name="element_10_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_5">грудопоясничный  отдел позвоночника сколиотически деформирован</label>
+<input id="element_10_6" name="element_10_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_6">консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева</label>
+<input id="element_10_7" name="element_10_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_10_7">консолидированный перелом VI ребра справа</label>
+
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		<div class="form-group">
+  <label class="description" for="bones">Костные структуры</label>
+  <div class="col-md-4">
+    <select id="bones" name="bones" class="form-control" multiple="multiple">
+      <option value="без особенностей" selected >без особенностей</option>
+      <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">дегенеративные изменения</option>
+      <option value="грудной отдел позвоночника легко сколиотически деформирован">легкий сколиоз грудного</option>
+      <option value="грудной отдел позвоночника сколиотически деформирован">сколиоз грудного</option>
+      <option value="грудопоясничный  отдел позвоночника сколиотически деформирован">сколиоз грудопоясничного</option>
+      <option value="консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева">консолидированные переломы</option>
+      <option value="консолидированный перелом VI ребра справа">консолидированный перелом</option>
+    </select>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+<!-- 		<li id="li_11" >
+		<label class="description" for="element_11">Дополнения </label>
+		<span>
+			<input id="element_11_1" name="element_11_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_1">С обеих сторон уплотнена апикальная плевра</label>
+<input id="element_11_2" name="element_11_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_2">С обеих сторон неравномерно уплотнена апикальная плевра</label>
+<input id="element_11_3" name="element_11_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_3">С обеих сторон затенена апикальная плевра</label>
+<input id="element_11_4" name="element_11_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_4">Обызвествеление реберных хрящей</label>
+<input id="element_11_5" name="element_11_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_5">Состояние после оперативного вмешательства</label>
+
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		
+	<div class="form-group">
+  <label class="description" for="add">Дополнения</label>
+  <div class="col-md-4">
+    <select id="add" name="add" class="form-control" multiple="multiple">
       <option value="С обеих сторон уплотнена апикальная плевра">С обеих сторон уплотнена апикальная плевра</option>
       <option value="С обеих сторон неравномерно уплотнена апикальная плевра">С обеих сторон неравномерно уплотнена апикальная плевра</option>
       <option value="С обеих сторон затенена апикальная плевра">С обеих сторон затенена апикальная плевра</option>
       <option value="Обызвествеление реберных хрящей">Обызвествеление реберных хрящей</option>
       <option value="Состояние после оперативного вмешательства">Состояние после оперативного вмешательства</option>
     </select>
-	</div>
-	
-	</div>	
-		
-
-
-<div class="my_container">
-
-  <div class="my_card_label">
-    <p>Заключение<p/>
   </div>
-  
-      <div class="my_card">	
-		<select class="form-control" id="conclusion" name="conclusion" multiple > 
-<option value="рентген-данных за патологические изменения в легких не получено" >ПАТ</option>
-<option value="рентген-данных за свежие патологические изменения в легких не получено" >свеж ПАТ</option>
-<option value="органы грудной полости в пределах возрастной нормы" >ПРЕД</option>
-<option value="рентген-признаки возрастных изменений органов грудной полости" >ВОЗ</option>
-<option value="рентген-данных за инфильтративные изменения в легких не получено" >ИНФ не получ</option>
+</div>	
+		
+		
+		
+		
+		
+		
+<!-- 		<li id="li_12" >
+		<label class="description" for="element_12">Заключение </label>
+		<span>
+			<input id="element_12_1" name="element_12_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_12_1">органы грудной полости без видимой патологии</label>
+<input id="element_12_2" name="element_12_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_2">рентген-данных за патологические изменения в легких не получено</label>
+<input id="element_12_3" name="element_12_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_3">рентген-данных за свежие патологические изменения в легких не получено</label>
+<input id="element_12_4" name="element_12_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_4">органы грудной полости в пределах возрастной нормы</label>
+<input id="element_12_5" name="element_12_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_5">рентген-признаки возрастных изменений органов грудной полости</label>
+<input id="element_12_6" name="element_12_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_6">рентген-данных за инфильтративные изменения в легких не получено</label>
+<input id="element_12_7" name="element_12_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_7">по сравнению с рентген-картиной от 24.10.23 положительная динамика за счет</label>
+<input id="element_12_8" name="element_12_8" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_8">по сравнению с рентген-картиной от 24.10.23 отрицательная динамика за счет</label>
+<input id="element_12_9" name="element_12_9" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_12_9">по сравнению с рентген-картиной от 24.10.23 без существенной динамики</label>
 
-<option value="по сравнению с рентген-картиной от 24.10.23 положительная динамика за счет" >ПОЛОЖ дин</option>
-
-<option value="по сравнению с рентген-картиной от 24.10.23 отрицательная динамика за счет" >ОТРИЦ дин</option>
-
-<option value="по сравнению с рентген-картиной от 24.10.23 без существенной динамики" >БЕЗ СУЩ дин</option>
-		</select>
-
-</div>
-
-</div>
-	
-
-
-<div class="my_container">
-
-
-	<div class="my_card_label">
-    <p>Рентген-признаки</p>
-	</div>
-	
-	<div class="my_card">
-	  <select id="rg" name="rg" class="form-control" multiple>
-      <option value="умеренной кардиомегалии">ум кард</option>
-      <option value="кардиомегалии">кард</option>
-      <option value="центрального вензного застоя">цвз</option>
-      <option value="расширения корня правого легкого">рас корня ПРАВ</option>
-      <option value="расширения и малоструктурности корня правого легкого">рас мало корня ПРАВ</option>
-      <option value="возрастных изменений органов грудной полости">ВОЗ</option>
-      <option value="поствоспалительных изменений органов грудной полости">ПОСТ</option>
-      <option value="поствоспалительных и возрастных изменений органов грудной полости">ПОСТ ВОЗ</option>
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		
+		
+	<div class="form-group">
+  <label class="description" for="conclusion">Заключение</label>
+  <div class="col-md-4">
+    <select id="conclusion" name="conclusion" class="form-control" multiple="multiple">
+      <option value="органы грудной полости без видимой патологии" selected >органы грудной полости без видимой патологии</option>
+      <option value="рентген-данных за патологические изменения в легких не получено">рентген-данных за патологические изменения в легких не получено</option>
+      <option value="рентген-данных за свежие патологические изменения в легких не получено">рентген-данных за "свежие" патологические изменения в легких не получено</option>
+      <option value="органы грудной полости в пределах возрастной нормы">органы грудной полости в пределах возрастной нормы</option>
+      <option value="рентген-признаки возрастных изменений органов грудной полости">рентген-признаки возрастных изменений органов грудной полости</option>
+      <option value="рентген-данных за инфильтративные изменения в легких не получено">рентген-данных за инфильтративные изменения в легких не получено</option>
+      <option value="по сравнению с рентген-картиной от 24.10.23 положительная динамика за счет">по сравнению с рентген-картиной от 24.10.23 положительная динамика за счет</option>
+      <option value="по сравнению с рентген-картиной от 24.10.23 отрицательная динамика за счет">по сравнению с рентген-картиной от 24.10.23 отрицательная динамика за счет</option>
+      <option value="по сравнению с рентген-картиной от 24.10.23 без существенной динамики">по сравнению с рентген-картиной от 24.10.23 без существенной динамики</option>
     </select>
-	</div>
-		
-
-
-  <div class="my_card_label">
-    <p align="center">Рекомендовано<p/>
-  </div>	
-		
-	<div class="my_card">
-	  <select id="recom" name="recom" class="form-control" multiple>
-      <option value="рентген-снимок в фазу вдоха">на вдохе</option>
-      <option value="рентген-снимок в правой боковой проекции">правый бок</option>
-      <option value="рентген-снимок в левой боковой проекции">левый бок</option>
-      <option value="соотнести с клинико-лабораторными данными">соотнести с клд</option>
-      <option value="МСКТ органов грудной полости в плановом порядке">МСКТ планово</option>
-      <option value="МСКТ органов грудной полости">МСКТ</option>
-    </select>
-	</div>	
-		
-	
   </div>
-  
- 
-  </form>	
+</div>	
 		
 		
-	</div>
 		
+		
+		
+		
+		
+<!-- 		<li id="li_13" >
+		<label class="description" for="element_13">Checkboxes </label>
+		<span>
+			<input id="element_13_1" name="element_13_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_1">умеренной кардиомегалии</label>
+<input id="element_13_2" name="element_13_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_2">кардиомегалии</label>
+<input id="element_13_3" name="element_13_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_3">центрального вензного застоя</label>
+<input id="element_13_4" name="element_13_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_4">расширения корня правого легкого</label>
+<input id="element_13_5" name="element_13_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_5">расширения и малоструктурности корня правого легкого</label>
+<input id="element_13_6" name="element_13_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_6">возрастных изменений органов грудной полости</label>
+<input id="element_13_7" name="element_13_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_7">поствоспалительных изменений органов грудной полости</label>
+<input id="element_13_8" name="element_13_8" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_13_8">поствоспалительных и возрастных изменений органов грудной полости</label>
+
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		
+		
+		
+		<div class="form-group">
+  <label class="description" for="rg">Рентген-признаки</label>
+  <div class="col-md-4">
+    <select id="rg" name="rg" class="form-control" multiple="multiple">
+      <option value="умеренной кардиомегалии">умеренной кардиомегалии</option>
+      <option value="кардиомегалии">кардиомегалии</option>
+      <option value="центрального вензного застоя">центрального вензного застоя</option>
+      <option value="расширения корня правого легкого">расширения корня правого легкого</option>
+      <option value="расширения и малоструктурности корня правого легкого">расширения и малоструктурности корня правого легкого</option>
+      <option value="возрастных изменений органов грудной полости">возрастных изменений органов грудной полости</option>
+      <option value="поствоспалительных изменений органов грудной полости">поствоспалительных изменений органов грудной полости</option>
+      <option value="поствоспалительных и возрастных изменений органов грудной полости">поствоспалительных и возрастных изменений органов грудной полости</option>
+    </select>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+<!-- 		<li id="li_14" >
+		<label class="description" for="element_14">Рекомендовано </label>
+		<span>
+			<input id="element_14_1" name="element_14_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_1">рентген-снимок в фазу вдоха</label>
+<input id="element_14_2" name="element_14_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_2">рентген-снимок в правой боковой проекции</label>
+<input id="element_14_3" name="element_14_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_3">рентген-снимок в левой боковой проекции</label>
+<input id="element_14_4" name="element_14_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_4">соотнести с клинико-лабораторными данными</label>
+<input id="element_14_5" name="element_14_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_5">МСКТ органов грудной полости в плановом порядке</label>
+<input id="element_14_6" name="element_14_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_14_6">МСКТ органов грудной полости</label>
+
+		</span> 
+		</li> -->
+		
+		
+		
+		
+		
+	<div class="form-group">
+  <label class="description" for="recom">Рекомендовано</label>
+  <div class="col-md-4">
+    <select id="recom" name="recom" class="form-control" multiple="multiple">
+      <option value="рентген-снимок в фазу вдоха">рентген-снимок в фазу вдоха</option>
+      <option value="рентген-снимок в правой боковой проекции">рентген-снимок в правой боковой проекции</option>
+      <option value="рентген-снимок в левой боковой проекции">рентген-снимок в левой боковой проекции</option>
+      <option value="соотнести с клинико-лабораторными данными">соотнести с клинико-лабораторными данными</option>
+      <option value="МСКТ органов грудной полости в плановом порядке">МСКТ органов грудной полости в плановом порядке</option>
+      <option value="МСКТ органов грудной полости">МСКТ органов грудной полости</option>
+    </select>
+  </div>
+</div>	
+		
+		
+		
+		
+		
+		
+		</ul>
+		</form>	
 
 	</div>
 	
-
+	
+	
+	
+	
+	
+	
 	
 	
 	
 	<div id="form_item_2">
 	
+	
 
+	<!-- <div> -->
+	<!-- <ul id="my_navi_ul"> -->
+  <!-- <li><a id="my_navi_li_a" href="#home">Главная</a></li> -->
+  <!-- <li><a id="my_navi_li_a" href="#news">Новости</a></li> -->
+  <!-- <li><a id="my_navi_li_a" href="#contact">Контакты</a></li> -->
+  <!-- <li><a id="my_navi_li_a" href="#about">О нас</a></li> -->
+	<!-- </ul> -->
+	
+	<!-- </div> -->
+	
 
+	
+	
 	
 <div class="page">
   <nav class="page__menu menu">
     <ul class="menu__list r-list">
-      <li class="menu__group"><a href="form.html" class="menu__link r-link text-underlined">ОГК</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #1</a></li>
       <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #2</a></li>
       <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #3</a></li>
 	  <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #4</a></li>
@@ -726,12 +699,17 @@
 
 	<li class="buttons">
 	<input type="hidden" name="form_id" value="48871" />
-	<input id="saveForm" class="button_text" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+	<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
 	</li>
 	
 	
+		<p id="p_projekciya"></p>
+        <p id="p1"></p>
+        <p id="p2"></p>
+		<p id="p4"></p>
+		<p id="p5"></p>
 		
-		<textarea variable="yname" id="show" class="mytextarea" rows="20" cols="70"></textarea>
+		<textarea variable="yname" id="show" class="mytextarea"></textarea>
 
 
 
@@ -746,209 +724,7 @@
 	
 	</div>
 	
-
-
+	<!-- <img id="bottom" src="bottom.png" alt=""> -->
+	
 	</body>
-	
-	<script>
-	
-		var zaschet = new MSFmultiSelect(
-    document.querySelector('#zaschet'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );	
-  
-  
-  		var korni = new MSFmultiSelect(
-    document.querySelector('#korni'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );	
-
-  
-  
-      		var kupol = new MSFmultiSelect(
-    document.querySelector('#kupol'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );	
-  
-  
-        		var sinus1 = new MSFmultiSelect(
-    document.querySelector('#sinus1'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );	
-  
-  
-            		var aorta = new MSFmultiSelect(
-    document.querySelector('#aorta'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );
-  
-  
-          		var bones = new MSFmultiSelect(
-    document.querySelector('#bones'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );	
-  
-  
-  
-            		var add = new MSFmultiSelect(
-    document.querySelector('#add'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );
-  
-  
-    var conclusion = new MSFmultiSelect(
-    document.querySelector('#conclusion'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );
-  
-  
-  
-  
-              		var rg = new MSFmultiSelect(
-    document.querySelector('#rg'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );
-  
-  
-  
-                		var recom = new MSFmultiSelect(
-    document.querySelector('#recom'),
-    {
-      theme: 'theme2',
-      selectAll: true,
-      searchBox: true,
-      width: '250px',
-      height: '48px',
-      // readOnly: true,
-      onChange:function(checked, value, instance) {
-        console.log(checked, value, instance);
-      },
-      // appendTo: '#myselect',
-      //readOnly:true,
-      //autoHide: false
-    }
-  );
-  
-	
-	</script>
-	
-	
-	
 </html>
