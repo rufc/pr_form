@@ -259,6 +259,9 @@
       }
 
 
+      if (result_proekcia < 1) {
+        result_proekcia = "На обзорной рентгенограмме органов грудной клетки в прямой проекции";
+      }
 
       if (result_risunok < 1) {
         result_risunok = "не изменён";
@@ -398,23 +401,98 @@
         <div class="my_container">
 
           <div class="my_card_label">
-            <p>На обзорной.. </p>
+            <p>Проекция</p>
           </div>
 
           <div class="my_card">
-            <select class="form-control_dropdown" id="proekcia" name="proekcia">
-              <option value="На обзорной рентгенограмме органов грудной клетки в прямой проекции" selected>РГ в прямой
-                проекции</option>
-              <option value="На обзорных рентгенограммах органов грудной клетки в двух проекциях">РГ в двух проекциях
-              </option>
-              <option value="На обзорной флюорограмме органов грудной клетки в прямой проекции">ФЛГ в прямой проекции
-              </option>
-              <option value="На обзорных флюорограммах органов грудной клетки в двух проекциях">ФЛГ в двух проекциях
-              </option>
+            <select class="form-control_mid" id="proekcia" name="proekcia" multiple>
+              <option value="Выполнены рентгенограммы органов грудной клетки в прямой и левой боковой проекциях">прямая
+                и левая</option>
+              <option value="Выполнены рентгенограммы органов грудной клетки в прямой и правой боковой проекциях">прямая
+                и правая</option>
             </select>
           </div>
 
 
+        </div>
+
+
+
+
+
+        <div class="my_container">
+
+          <div class="my_card_label">
+            <p>Костные структуры</p>
+          </div>
+
+          <div class="my_card">
+            <select id="bones" name="bones" class="form-control" multiple="multiple">
+              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">ДЕГ</option>
+              <option value="грудной отдел позвоночника легко сколиотически деформирован">лег СКОЛ гоп</option>
+              <option value="грудной отдел позвоночника сколиотически деформирован">СКОЛ гоп</option>
+              <option value="грудопоясничный  отдел позвоночника сколиотически деформирован">СКОЛ гпоп</option>
+              <option value="консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева">КОНС
+                пер-мы</option>
+              <option value="консолидированный перелом VI ребра справа">КОНС пер</option>
+            </select>
+          </div>
+
+        </div>
+
+
+
+
+
+        <div class="my_container">
+
+
+          <div class="my_card_label">
+            <p>Лёгочные поля</p>
+          </div>
+
+
+
+          <div class="my_card">
+            <select id="leg_polya" name="leg_polya" class="form-control_mini" multiple>
+              <option value="..">..</option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="my_container">
+
+
+          <div class="my_card_label">
+            <p>Очаги инфильтрация</p>
+          </div>
+
+
+
+          <div class="my_card">
+            <select id="polya" name="polya" class="form-control_mini" multiple>
+              <option value="плотная очаговая тень в среднем отделе правого легкого">плот очаг</option>
+              <option value="очаговое затенение в проекции s8 левого легкого">очаг затен</option>
+            </select>
+
+          </div>
+
+
+          <div class="my_card">
+            <select id="polya_inf" name="polya_inf" class="form-control_mid" multiple>
+              <option value="сгущение в медиобазальном отделе левого легкого">сгущ</option>
+              <option value="неоднородное снижение пневматизации в проекции s6 левого легкого">нео сниж пневм</option>
+              <option value="неоднородные уплотнения легочной ткани в проекции s6 правого легкого">нео уплот</option>
+            </select>
+
+          </div>
         </div>
 
 
@@ -493,7 +571,132 @@
           </div>
 
 
+        </div>
 
+
+
+
+
+
+        <div class="my_container">
+
+
+          <div class="my_card_label">
+            <p>Средостение</p>
+          </div>
+
+
+          <div class="my_card">
+            <select id="sred" name="sred" class="form-control" multiple>
+              <option value="расширено вправо">РАС ВПРАВО</option>
+              <option value="расширено влево">РАС ВЛЕВО</option>
+              <option value="смещено вправо">СМЕЩ ВПРАВО</option>
+              <option value="смещено влево">СМЕЩ ВЛЕВО</option>
+            </select>
+          </div>
+
+
+          <div class="my_card">
+            <select id="sred2" name="sred2" class="form-control_mini" multiple>
+              <option value="с нечёткими контурами">НЕЧ КОНТ</option>
+            </select>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+        <div class="my_container">
+
+
+          <div class="my_card_label">
+            <p>Конфигурация СС тени</p>
+          </div>
+
+          <div class="my_card">
+
+
+            <select id="conf_cardio" name="conf_cardio" class="form-control_mid" multiple>
+              <option value="...">митральная</option>
+              <option value="..">аортальная</option>
+              <option value="..">трапецевидная</option>
+              <option value="..">шаровидная</option>
+            </select>
+
+
+          </div>
+
+
+          <div class="my_card">
+            <select id="talia_cardio" name="talia_cardio" class="form-control_mini" multiple>
+              <option value="сглажена">сглажена</option>
+              <option value="подчёркнута">подчёркнута</option>
+              <option value="выражена">выражена</option>
+            </select>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+        <div class="my_container">
+
+
+          <div class="my_card_label">
+            <p>Тень сердца</p>
+          </div>
+
+          <div class="my_card">
+
+
+            <select id="cardio" name="cardio" class="form-control_mid" multiple>
+              <option value="умеренно расширена">УМ</option>
+              <option value="расширена">РАС</option>
+            </select>
+
+
+          </div>
+
+
+          <div class="my_card">
+            <select id="kti_cardio" name="kti_cardio" class="form-control_mini" multiple>
+              <option value="0,62">0,62</option>
+            </select>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="my_container">
+
+          <div class="my_card_label">
+            <p>Аорта</p>
+          </div>
+
+          <div class="my_card">
+            <select class="form-control" id="aorta" name="aorta" multiple>
+              <option value="удлинена">УД</option>
+              <option value="фрагментарно кальцинирована">фраг</option>
+              <option value="удлинена, фрагментарно кальцинирована">УД фраг</option>
+              <option value="удлинена, кальцинирована">УД кальц</option>
+            </select>
+
+          </div>
 
 
         </div>
@@ -505,34 +708,28 @@
 
 
           <div class="my_card_label">
-            <p>Лёгочные поля</p>
+            <p>Жидкость и воздух</p>
           </div>
 
-
-
           <div class="my_card">
-            <select id="polya" name="polya" class="form-control_mini" multiple>
-              <option value="плотная очаговая тень в среднем отделе правого легкого">плот очаг</option>
-              <option value="очаговое затенение в проекции s8 левого легкого">очаг затен</option>
+            <select id="air" name="air" class="form-control" multiple>
+              <option value="газ">Справа апикально и пристеночно определяется край колабированного легкого, свободный
+                газ в правой плевральной полости толщиной полоски апикально до 15мм, пристеночно до 15мм.</option>
             </select>
-
           </div>
 
 
           <div class="my_card">
-            <select id="polya_inf" name="polya_inf" class="form-control_mid" multiple>
-              <option value="сгущение в медиобазальном отделе левого легкого">сгущ</option>
-              <option value="неоднородное снижение пневматизации в проекции s6 левого легкого">нео сниж пневм</option>
-              <option value="неоднородные уплотнения легочной ткани в проекции s6 правого легкого">нео уплот</option>
+            <select id="water" name="water" class="form-control_mini" multiple>
+              <option
+                value="В правой плевральной полости затенен латеральный реберно-диафрагмальный синус за счёт плеврального выпота с верхней границей до бокового отрезка XIII ребра">
+                ПРАВ гидр</option>
             </select>
-
           </div>
-
 
 
 
         </div>
-
 
 
 
@@ -547,18 +744,26 @@
 
           <div class="my_card">
             <select id="kupol" name="kupol" class="form-control" multiple>
+              <option value="с признаками плевро-диафрагмальных спаек">СПА</option>
+              <option value="с признаками незначительной релаксации">незнач РЕЛ</option>
+              <option value="с признаками релаксации">РЕЛ</option>
+              <option value="справа расположен выше обычного">СПРАВА выше</option>
+              <option value="слева расположен выше обычного">СЛЕВА выше</option>
+            </select>
+          </div>
+
+
+          <div class="my_card">
+            <select id="kupo_kontur" name="kupol_kontur" class="form-control" multiple>
               <option value="достаточно четкий, ровный">ДОСТ</option>
               <option value="нечеткий, неровный">неч нер</option>
               <option value="затенен">ЗАТ</option>
-              <option value="с признаками незначительной релаксации">незнач РЕЛ</option>
-              <option value="с признаками релаксации">РЕЛ</option>
-              <option value="с признаками плевро-диафрагмальных спаек">СПА</option>
             </select>
           </div>
 
 
           <div class="my_card">
-            <select id="kupol2" name="kupol2" class="form-control_mini" multiple>
+            <select id="kupol_side" name="kupol_side" class="form-control_mini" multiple>
               <option value="справа">справа</option>
               <option value="слева">слева</option>
             </select>
@@ -573,113 +778,21 @@
 
 
 
-        <div class="my_container">
-
-
-          <div class="my_card_label">
-            <p>Плевро-<br><br><br><br><br>диафрагмальные<br><br><br><br><br>синусы</p>
-          </div>
-
-          <div class="my_card">
-            <select id="sinus1" name="sinus1" class="form-control" multiple>
-              <option value="облитерирован латеральный">облитерирован</option>
-              <option value="облитерированы">облитерироваНЫ</option>
-              <option value="затенен латеральный">затенен</option>
-              <option value="затенены">затенеНЫ</option>
-              <option value="затенены латеральный и задний">затенеНЫ ЛАТ и ЗАД</option>
-            </select>
-          </div>
-
-
-          <div class="my_card">
-            <select id="sinus2" name="sinus2" class="form-control_mini" multiple>
-              <option value="справа">справа</option>
-              <option value="слева">слева</option>
-            </select>
-          </div>
-
-
-
-        </div>
 
 
 
 
-        <div class="my_container">
-
-
-          <div class="my_card_label">
-            <p>Границы сердца</p>
-          </div>
-
-          <div class="my_card">
-
-
-            <select id="cardio" name="cardio" class="form-control_mid" multiple>
-              <option value="умеренно расширены">УМ</option>
-              <option value="расширены">РАС</option>
-              <option value="выражено расширены">ВЫР</option>
-            </select>
-
-
-          </div>
-
-
-          <div class="my_card">
-            <select id="cardio2" name="cardio2" class="form-control_mini" multiple>
-              <option value="влево">влево</option>
-              <option value="в поперечнике">в поперечнике</option>
-            </select>
-          </div>
-
-
-
-        </div>
 
 
 
 
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Аорта</p>
-          </div>
-
-          <div class="my_card">
-            <select class="form-control" id="aorta" name="aorta" multiple>
-              <option value="соответствует возрасту">СВ</option>
-              <option value="удлинена">УД</option>
-              <option value="фрагментарно кальцинирована">фраг</option>
-              <option value="удлинена, фрагментарно кальцинирована">УД фраг</option>
-              <option value="удлинена, кальцинирована">УД кальц</option>
-            </select>
-
-          </div>
-
-
-        </div>
 
 
 
-        <div class="my_container">
 
-          <div class="my_card_label">
-            <p>Костные структуры</p>
-          </div>
 
-          <div class="my_card">
-            <select id="bones" name="bones" class="form-control" multiple="multiple">
-              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">ДЕГ</option>
-              <option value="грудной отдел позвоночника легко сколиотически деформирован">лег СКОЛ гоп</option>
-              <option value="грудной отдел позвоночника сколиотически деформирован">СКОЛ гоп</option>
-              <option value="грудопоясничный  отдел позвоночника сколиотически деформирован">СКОЛ гпоп</option>
-              <option value="консолидированные переломы VI, VII, VIII ребер справа, VI, VII, VIII ребер слева">КОНС
-                пер-мы</option>
-              <option value="консолидированный перелом VI ребра справа">КОНС пер</option>
-            </select>
-          </div>
 
-        </div>
+
 
 
         <div class="my_container">
@@ -794,7 +907,7 @@
     <div class="page">
       <nav class="page__menu menu">
         <ul class="menu__list r-list">
-          <li class="menu__group"><a href="form.html" class="menu__link r-link text-underlined">ОГК</a></li>
+          <li class="menu__group"><a href="thorax.html" class="menu__link r-link text-underlined">ОГК</a></li>
           <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #2</a></li>
           <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #3</a></li>
           <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Option #4</a></li>
