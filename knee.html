@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Коленный сустав</title>
+  <title>Тест</title>
   <link rel="stylesheet" type="text/css" href="view.css" media="all">
   <script type="text/javascript" src="view.js"></script>
   <link rel="stylesheet" type="text/css" href="msfmultiselect.css" />
@@ -18,192 +18,117 @@
     function testVariable() {
       debugger
 
-      // let result_proekcia = ""
-      // if (document.getElementById("proekcia").length > 0) {
-      //   for (let i = 0; i < document.getElementById("proekcia").length; i++) {
-      //     let option = document.getElementById("proekcia").options[i];
-      //     if (option.selected) {
-      //       result_proekcia = option.value;
-      //     }
-      //   }
-      // }
 
 
-
-
-      let result_add = ""
-      if (document.getElementById("add").length > 0) {
-        for (let i = 0; i < document.getElementById("add").length; i++) {
-          let option = document.getElementById("add").options[i];
+      let result_list = [];
+      if (document.getElementById("list").length > 0) {
+        for (let i = 0; i < document.getElementById("list").length; i++) {
+          let option = document.getElementById("list").options[i];
           if (option.selected) {
-            result_add += option.value + ". ";
+            result_list += option.value;
           }
         }
       }
 
 
 
-      let result_conclusion = ""
-      if (document.getElementById("conclusion").length > 0) {
-        for (let i = 0; i < document.getElementById("conclusion").length; i++) {
-          let option = document.getElementById("conclusion").options[i];
-          if (option.selected) {
-            result_conclusion = option.value;
-          }
-        }
-      }
+      proekcia = [
+        "На обзорных рентгенограммах левого коленного сустава в двух проекциях",
+        "На обзорных рентгенограммах правого и левого коленных суставов в прямой проекции",
+        "На обзорных рентгенограммах правого и левого коленных суставов в двух проекциях",
+        "На обзорных рентгенограммах правого коленного сустава в двух проекциях"
+      ];
+
+      kti = ["данных за костные травматические и деструктивные изменения не получено"];
+      min = ["минимально снижена", "умеренно снижена", "снижена", "выражено снижена", "сохранена"];
+      kong = ["Суставные поверхности конгруэнтные"];
+      shel = ["легко сужена", "умеренно сужена", "сужена", "выражено сужена", "не сужена"];
+      kray = ["визуализируются", "минимальные", "умеренные", "выраженные", "не визуализируются"];
+
+      zao = ["межмыщелковых возвышений", "медиального межмыщелкового возвышения", "медиальных межмыщелковых возвышений"];
+
+      zao_nadk = ["по краям надколенника", "по краям надколенников"];
 
 
 
-      let result_recom = ""
-      if (document.getElementById("recom").length > 0) {
-        for (let i = 0; i < document.getElementById("recom").length; i++) {
-          let option = document.getElementById("recom").options[i];
-          if (option.selected) {
-            result_recom += option.value + ", ";
-          }
-        }
-      }
-
-
-
-      // if (result_risunok < 1) {
-      //   result_risunok = "не изменён";
-      //   result_zaschet = "";
-      // }
-
-      // if (result_risunok == "без особенностей") {
-      //   result_zaschet = "";
-      // }
-
-      // if (result_zaschet < 1) {
-      //   result_risunok += ". ";
-      // } else { result_risunok += ", "; }
-
-
-      // if (result_zaschet) {
-      //   result_risunok += "изменён за счёт: "
-      // }
-
-
-      // if (result_rg) {
-      //   result_conclusion = "рентген-признаки ";
-      // }
-
-
-      // if (result_korni < 1) {
-      //   result_korni = "не расширены, ";
-      // }
-      // if (result_korni2 < 1) {
-      //   result_korni2 = "струкутурные";
-      // }
-
-      // if (result_korni2 == "струкутурные" || result_korni2 == "структура сохранена") {
-      //   result_korni3 = "";
-      // }
-
-      // if (result_korni3 < 1) {
-      //   result_korni2 += ". ";
-      // } else { result_korni2 += ", "; }
-
-
-      // if (result_polya < 1 && result_polya_inf < 1) {
-      //   result_polya = "без видимых очаговых и инфильтративных изменений. ";
-      // } else if (result_polya_inf < 1) {
-      //   result_polya_inf = "без видимых инфильтративных изменений. ";
-      // } else if (result_polya < 1) {
-      //   result_polya = "без видимых очаговых изменений, ";
-      // }
-
-
-
-      // if (result_kupol < 1) {
-      //   result_kupol = "чёткий, ровный";
-      //   result_kupol2 = "";
-      // }
-
-      // if (result_kupol2 < 1) {
-      //   result_kupol = result_kupol.trimEnd() + ". ";
-      // }
-
-
-      // if (result_sinus1 < 1) {
-      //   result_sinus1 = "свободные в видимых отделах";
-      //   result_sinus2 = "";
-      // }
-
-      // if (result_sinus2 < 1) {
-      //   result_sinus1 = result_sinus1.trimEnd() + ". ";
-      // }
-
-
-      // if (result_cardio < 1) {
-      //   result_cardio = "не расширены";
-      //   result_cardio2 = "";
-      // }
-
-      // if (result_cardio2 < 1) {
-      //   result_cardio += ". ";
-      // } else { result_cardio += " "; }
-
-      // if (result_aorta < 1) {
-      //   result_aorta = "не изменена. ";
-      // }
-
-      // if (result_bones < 1) {
-      //   result_bones = "без особенностей. ";
-      // }
-
-      // if (result_conclusion < 1) {
-      //   result_conclusion = "органы грудной полости без видимой патологии. ";
-      // }
-
-      // let recom_zag = "Рекомендации: ";
-      // if (result_recom < 1) {
-      //   recom_zag = "";
-      // }
-
-
-      let doa = "начальных проявлений остеоартроза";
-      if (result_conclusion == "I") {
-        doa = "остеоартроза";
-        conc_itog = "I стадии (по J. Kellgren & J. Lawrence)";
-      } else if (result_conclusion == "II") {
-        doa = "остеоартроза";
-        conc_itog = "II стадии (по J. Kellgren & J. Lawrence)";
-      }
-      else if (result_conclusion == "III") {
-        doa = "деформирующего остеоартроза";
-        conc_itog = "III стадии (по J. Kellgren & J. Lawrence)";
+      let proekcia_itog = "";
+      if (result_list.includes("left_2x")) {
+        proekcia_itog = proekcia[0] + " ";
+      } else if (result_list.includes("left_right_1x")) {
+        proekcia_itog = proekcia[1] + " ";
+      } else if (result_list.includes("left_right_2x")) {
+        proekcia_itog = proekcia[2] + " ";
       } else {
-        conc_itog = "";
+        proekcia_itog = proekcia[3] + " ";
       }
 
-      // result_conclusion == "IV стадии (по J. Kellgren & J. Lawrence)"
-
-      let side = "правого и левого коленных суставов";
-      if (result_proekcia = "На обзорных рентгенограммах левого коленного сустава в двух проекциях") {
-        side = "левого коленного сустава";
-      } else if (result_proekcia = "На обзорных рентгенограммах правого коленного сустава в двух проекциях") {
-        side = "правого коленного сустава";
+      let min_itog = "";
+      let min_start = "Минеральная плотность костей ";
+      if (result_list.includes("min_min")) {
+        min_itog = min_start + min[0] + ". ";
+      } else if (result_list.includes("min_um")) {
+        min_itog = min_start + min[1] + ". ";
+      } else if (result_list.includes("min_sniz")) {
+        min_itog = min_start + min[2] + ". ";
+      } else if (result_list.includes("min_vir")) {
+        min_itog = min_start + min[3] + ". ";
+      } else {
+        min_itog = min_start + min[4] + ". ";
       }
 
-      if (result_conclusion < 1) {
-        side_norm = side;
-        side = "";
-        conc_itog = "рентген-данных за патологические изменения" + side_norm + " не получено.";
-        doa = "";
+      let shel_itog = "";
+      let shel_start = "Рентгеновская суставная щель ";
+      if (result_list.includes("shel_leg")) {
+        shel_itog = shel_start + shel[0] + ". ";
+      } else if (result_list.includes("shel_um")) {
+        shel_itog = shel_start + shel[1] + ". ";
+      } else if (result_list.includes("shel_suz")) {
+        shel_itog = shel_start + shel[2] + ". ";
+      } else if (result_list.includes("shel_vir")) {
+        shel_itog = shel_start + shel[3] + ". ";
+      } else {
+        shel_itog = shel_start + shel[4] + ". ";
+      }
+
+      let kray_itog = "";
+      let kray_start = "Краевые костные разрастания ";
+      if (result_list.includes("kray_viz")) {
+        kray_itog = kray_start + kray[0] + ". ";
+      } else if (result_list.includes("kray_min")) {
+        kray_itog = kray_start + kray[1] + ". ";
+      } else if (result_list.includes("kray_um")) {
+        kray_itog = kray_start + kray[2] + ". ";
+      } else if (result_list.includes("kray_vir")) {
+        kray_itog = kray_start + kray[3] + ". ";
+      } else {
+        kray_itog = kray_start + kray[4] + ". ";
       }
 
 
+      let zao_itog = "";
+      let zao_start = "Заострения ";
+      if (result_list.includes("zao_mezh")) {
+        zao_itog = zao_start + zao[0] + ". ";
+      } else if (result_list.includes("zao_med")) {
+        if (proekcia_itog == proekcia[1] + " " || proekcia_itog == proekcia[2] + " ") {
+          zao_itog = zao_start + zao[2] + ". ";
+        } else {
+          zao_itog = zao_start + zao[1] + ". ";
+        }
+      }
+      // продолжить с надколенниками чтобы добавлялся когда надо и убирался также зависел от проекции
+
+
+      // <p>Субхондральный склероз не определяется.</p>
+      // <p>Заключение: рентген-данных за патологические изменения правого коленного сустава не получено.</p>
 
 
 
-      // document.getElementById("show").innerText = result_proekcia + " " + "лёгочный рисунок " + result_risunok + result_zaschet.replace(/,(?![^,]*,)/m, '.') + "Корни лёгких " + result_korni + result_korni2 + result_korni3.replace(/,(?![^,]*,)/m, '.') + "Лёгочные поля: " + result_polya + result_polya_inf + "Купол диафрагмы " + result_kupol.replace(/,(?![^,]*,)/m, '') + result_kupol2 + "Плевро-диафрагмальные синусы: " + result_sinus1.replace(/,(?![^,]*,)/m, '') + result_sinus2 + "Границы сердца " + result_cardio + result_cardio2 + "Аорта " + result_aorta + "Костные структуры: " + result_bones.replace(/,(?![^,]*,)/m, '.') + result_add + "Заключение: " + result_conclusion + result_rg.replace(/,(?![^,]*,)/m, '.') + recom_zag + result_recom.replace(/,(?![^,]*,)/m, '.');
 
 
+      // pro_okno = document.getElementById("pro").innerHTML;
+      document.getElementById("show").innerText = proekcia_itog + kti + ". " + min_itog + kong + ". " + shel_itog + kray_itog + zao_itog;
 
-      document.getElementById("show").innerText = result_add + "Заключение: " + doa + side + conc_itog;
 
 
     }
@@ -220,12 +145,9 @@
 
 <body id="main_body">
 
-
   <div id="form_container">
 
     <div id="form_item_1">
-
-
 
 
 
@@ -235,41 +157,29 @@
           <p><!-- description --></p>
         </div>
 
-
-
-
         <div class="my_container">
 
-          <div class="my_card_label">
-            <p>Проекции</p>
-          </div>
 
           <div class="my_card">
-            <select class="form-control" id="proekcia" name="proekcia" multiple>
-              <option value="На обзорных рентгенограммах левого коленного сустава в двух проекциях">ЛЕВ 2х</option>
-              <option value="На обзорных рентгенограммах правого и левого коленных суставов в прямой проекции">ОБА 1х
-              </option>
-              <option value="На обзорных рентгенограммах правого и левого коленных суставов в двух проекциях">ОБА 2х
-              </option>
-            </select>
-          </div>
-
-        </div>
-
-
-
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Минеральная плотность</p>
-          </div>
-
-          <div class="my_card">
-
-            <select id="min" name="min" class="form-control_mid" multiple>
-              <option value="снижена">снижена</option>
-              <option value="легко снижена">легко снижена</option>
-              <option value="умеренно снижена">умеренно снижена</option>
+            <select class="form-control" id="list" name="list" multiple>
+              <option value="left_2x">левого в двух</option>
+              <option value="left_right_1x">правого и левого в прямой</option>
+              <option value="left_right_2x">правого и левого в двух</option>
+              <option value="min_min">мин снижена</option>
+              <option value="min_um">ум снижена</option>
+              <option value="min_sniz">снижена</option>
+              <option value="min_vir">выр снижена</option>
+              <option value="shel_leg">легко сужена</option>
+              <option value="shel_um">ум сужена</option>
+              <option value="shel_suz">сужена</option>
+              <option value="shel_vir">выр сужена</option>
+              <option value="kray_viz">краевые виз</option>
+              <option value="kray_min">краевые мин</option>
+              <option value="kray_um">краевые ум</option>
+              <option value="kray_vir">краевые выр</option>
+              <option value="zao_mezh">зао межмыщ</option>
+              <option value="zao_med">зао мед межмыщ</option>
+              <option value="zao_nadk">зао надк</option>
             </select>
           </div>
 
@@ -278,222 +188,10 @@
 
 
 
-        <!-- контейнер суставные поверхности конгруэнтные -->
-
-
-
-
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Суставная щель</p>
-          </div>
-
-          <div class="my_card">
-            <select id="shel" name="shel" class="form-control_mid" multiple>
-              <option value="сужена">СУЖ</option>
-              <option value="легко сужена">ЛЕГ</option>
-              <option value="умеренно сужена">УМ</option>
-              <option value="выражено сужена">ВЫР</option>
-            </select>
-          </div>
-
-
-
-          <!-- 
-          если одна коленка то:
-           в медиальном отделе
-           если две коленки то:
-          в медиальных отделах -->
-
-
-
-
-          <!-- <div class="my_card">
-            <select id="korni2" name="korni2" class="form-control_mid" multiple>
-              <option value="структура сохранена">струк сохр</option>
-              <option value="малоструктурные">малостр</option>
-              <option value="не структурные">не струк</option>
-            </select>
-          </div> -->
-
-          <!-- <div class="my_card">
-            <select id="korni3" name="korni3" class="form-control" multiple>
-              <option value="уплотнены">уплотнены</option>
-              <option value="с нечеткими и неровными контурами">нечеткие неровные</option>
-              <option value="с полицикличными контурами">полицикл</option>
-            </select>
-          </div> -->
-
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-        <div class="my_container">
-
-
-          <div class="my_card_label">
-            <p>Краевые разрастания</p>
-          </div>
-
-
-
-          <div class="my_card">
-            <select id="kraevye" name="kraevye" class="form-control_mid" multiple>
-              <option value="визуализируются">ВИЗ</option>
-              <option value="минимальные">МИН</option>
-              <option value="умеренные">УМ</option>
-              <option value="выраженные">ВЫР</option>
-            </select>
-          </div>
-
-          <!-- заострения межмыщелковых возвышений: не определяется -->
-          <div class="my_card">
-            <select id="zao" name="zao" class="form-control_mid" multiple>
-              <option value="заострения межмыщелковых возвышений">ВСЕХ</option>
-              <option value="заострение медиального межмыщелкового возвышения">медГО
-              <option>
-              <option value="заострение медиальных межмыщелковых возвышений">медЫХ</option>
-            </select>
-          </div>
-
-
-
-          <div class="my_card">
-            <select id="zao_nadk" name="zao_nadk" class="form-control_mid" multiple>
-              <option value="и по краям надколенника">надКА</option>
-              <option value="и по краям надколенников">надкОВ</option>
-              <option value="и по верхнему краю надколенника">верх надКА</option>
-              <option value="и по верхним краям надколенников">верх надкОВ</option>
-            </select>
-          </div>
-
-
-        </div>
-
-
-
-
-
-        <div class="my_container">
-
-
-          <div class="my_card_label">
-            <p>Субхондральный склероз</p>
-          </div>
-
-
-          <div class="my_card">
-            <select id="kupol" name="kupol" class="form-control_mid" multiple>
-              <option value="медиального мыщелка большеберцовой кости">СУБ</option>
-              <option value="уплотнение суставной поверхности медиального мыщелка большеберцовой кости">УПЛ</option>
-              <option value="подчеркнута суставная поверхность медиального мыщелка большеберцовой кости">ПОДЧ</option>
-            </select>
-
-
-            <!-- 
-              если оба коленных то соответсвенно сделай if:
-              
-              медиальных мыщелков большеберцовых костей
-            уплотнение суставных поверхностей медиальных мыщелков большеберцовых костей
-            подчеркнуты суставные поверхности медиальных мыщелков большеберцовых костей 
-          
-          -->
-
-
-          </div>
-
-
-        </div>
-
-
-
-
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Дополнения</p>
-          </div>
-
-          <div class="my_card">
-            <select id="add" name="add" class="form-control" multiple>
-              <option value="Артефакты от одежды">АРТ</option>
-              <option value="Состояние после оперативного вмешательства">ОПЕР</option>
-            </select>
-          </div>
-
-        </div>
-
-
-
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Заключение
-              <p />
-          </div>
-
-          <div class="my_card">
-            <select class="form-control" id="conclusion" name="conclusion" multiple>
-              <option value="">НАЧ</option>
-              <option value="I">I</option>
-              <option value="II">II</option>
-              <option value="III">III</option>
-            </select>
-          </div>
-
-
-        </div>
-
-        <!-- norm
-              рентген-данных за патологические изменения не получено
-
-              side
-              правого коленного сустава
-              левого коленного сустава
-              правого и левого коленных суставов
-
-              рентген-признаки
-
-              начальных проявлений остеоартроза side
-              остеоартроза side I стадии (по J. Kellgren & J. Lawrence)
-              остеоартроза side II стадии (по J. Kellgren & J. Lawrence)
-              деформирующего остеоартроза side III стадии (по J. Kellgren & J. Lawrence) -->
-
-
-
-
-        <div class="my_container">
-
-          <div class="my_card_label">
-            <p>Рекомендовано
-              <p />
-          </div>
-
-          <div class="my_card">
-            <select id="recom" name="recom" class="form-control" multiple>
-              <option value="рентген-снимок в фазу вдоха">ВДОХ</option>
-              <option value="рентген-снимок в правой боковой проекции">ПРАВ бок</option>
-              <option value="рентген-снимок в левой боковой проекции">ЛЕВ бок</option>
-              <option value="соотнести с клинико-лабораторными данными">СООТ</option>
-              <option value="МСКТ органов грудной полости в плановом порядке">МСКТ план</option>
-              <option value="МСКТ органов грудной полости">МСКТ</option>
-            </select>
-          </div>
-
-
-        </div>
 
 
       </form>
+
 
 
     </div>
@@ -502,11 +200,7 @@
 
 
 
-
-
     <div id="form_item_2">
-
-
 
 
       <div class="page">
@@ -522,11 +216,11 @@
       </div>
 
 
-
       <li class="buttons">
         <input type="hidden" name="form_id" value="48871" />
         <input id="saveForm" class="button_text" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
       </li>
+
 
 
 
@@ -535,10 +229,9 @@
 
 
 
-
-
-
     </div>
+
+
 
 
 
@@ -551,8 +244,8 @@
 
 <script>
 
-  var add = new MSFmultiSelect(
-    document.querySelector('#add'),
+  var list = new MSFmultiSelect(
+    document.querySelector('#list'),
     {
       theme: 'theme2',
       selectAll: true,
