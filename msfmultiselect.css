@@ -6,9 +6,10 @@
 .msf_multiselect_container {
   display: inline-block;
 }
+
 .msf_multiselect_container .msf_multiselect {
   border: 1px solid #e4e4e4;
-  list-style-type:none;
+  list-style-type: none;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -16,27 +17,32 @@
 }
 
 
-.msf_multiselect_container:hover {
+/* .msf_multiselect_container:hover {
   transform: scale(1.5);
   background: #fff;
   z-index: 1;
   transition: transform .1s;
-}
+} */
 
 
 
-.msf_multiselect li:hover, .msf_multiselect li:focus{
+.msf_multiselect li:hover,
+.msf_multiselect li:focus {
   background-color: #e5e5e5;
 }
-.msf_multiselect li.active{
+
+.msf_multiselect li.active {
   background-color: #e5e5e5;
 }
-.msf_multiselect li{
+
+.msf_multiselect li {
   padding-left: 4px;
   background-color: #ffffff;
   cursor: pointer;
 }
-.msf_multiselect_container textarea{
+
+
+.msf_multiselect_container textarea {
   resize: none;
   padding-left: 2px;
   padding-top: 2px;
@@ -46,13 +52,13 @@
 
 
 
-.msf_multiselect_container .msf_multiselect{
+.msf_multiselect_container .msf_multiselect {
   /* max-height: 200px; */
   /* overflow: auto; */
   background-color: #fff;
   display: grid;
   text-align: left;
-  font-size:14px;
+  font-size: 18px;
   /* font-family:Lucida Grande, Tahoma, Arial, Verdana, sans-serif; */
 }
 
@@ -60,10 +66,11 @@
 
 
 
-.msf_multiselect label{
+.msf_multiselect label {
   display: block;
   margin-bottom: 1px;
 }
+
 
 
 
@@ -74,8 +81,8 @@
   border: 1px solid #e6e3e3;
   border-radius: 25px;
   display: inline-block;
-  font-size: 14px;
-  font-weight:700;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 
@@ -85,20 +92,24 @@
   cursor: pointer;
   color: #ff6060;
 }
+
 .msf_multiselect_container .closeBtn.readOnly {
   cursor: unset;
 }
+
 .msf_multiselect_container .hidden {
   display: none !important;
 }
+
 .msf_multiselect .searchbox {
   width: -moz-available;
   width: -webkit-fill-available;
   padding: 0;
   margin: 0;
   height: 30px;
-  font-size: 16px;
+  font-size: 20px;
 }
+
 .msf_multiselect_container .logger {
   /* border: 1px solid #b6b6b3; */
   display: inherit;
@@ -106,6 +117,7 @@
   padding: 1px;
   overflow-y: auto;
 }
+
 .msf_multiselect_container .msf_multiselect.offdropdown {
   position: unset;
 }

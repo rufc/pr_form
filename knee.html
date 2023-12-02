@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Тест</title>
+  <title>Коленный сустав</title>
   <link rel="stylesheet" type="text/css" href="view.css" media="all">
   <script type="text/javascript" src="view.js"></script>
   <link rel="stylesheet" type="text/css" href="msfmultiselect.css" />
@@ -47,9 +47,11 @@
 
       zao = ["межмыщелковых возвышений", "медиального межмыщелкового возвышения", "медиальных межмыщелковых возвышений"];
 
-      zao_nadk = ["по краям надколенника", "по краям надколенников"];
+      nadk = ["по краям надколенника", "по краям надколенников"];
 
+      scler = ["уплотнение", "суставной поверхности", "медиального мыщелка", "суставных поверхностей", "медиальных мыщелков", "деформация суставных поверхностей", "не определяется", "большеберцовой кости", "большеберцовой и бедренной костей", "уплощение суставных поверхностей"]
 
+      conclusion = ["рентген-признаки", "начальных проявлений остеоартроза", "остеоартроза", "деформирующего остеоартроза", "правого", "левого", "коленного сустава", "правого и левого", "коленных суставов", "I", "II", "III", "IV", "стадии (по J. Kellgren & J. Lawrence)", "рентген-данных за патологические изменения", "не получено"]
 
       let proekcia_itog = "";
       if (result_list.includes("left_2x")) {
@@ -61,6 +63,8 @@
       } else {
         proekcia_itog = proekcia[3] + " ";
       }
+
+      kti += ". ";
 
       let min_itog = "";
       let min_start = "Минеральная плотность костей ";
@@ -75,6 +79,8 @@
       } else {
         min_itog = min_start + min[4] + ". ";
       }
+
+      kong += ". ";
 
       let shel_itog = "";
       let shel_start = "Рентгеновская суставная щель ";
@@ -93,46 +99,121 @@
       let kray_itog = "";
       let kray_start = "Краевые костные разрастания ";
       if (result_list.includes("kray_viz")) {
-        kray_itog = kray_start + kray[0] + ". ";
+        kray_itog = kray_start + kray[0];
       } else if (result_list.includes("kray_min")) {
-        kray_itog = kray_start + kray[1] + ". ";
+        kray_itog = kray_start + kray[1];
       } else if (result_list.includes("kray_um")) {
-        kray_itog = kray_start + kray[2] + ". ";
+        kray_itog = kray_start + kray[2];
       } else if (result_list.includes("kray_vir")) {
-        kray_itog = kray_start + kray[3] + ". ";
+        kray_itog = kray_start + kray[3];
       } else {
-        kray_itog = kray_start + kray[4] + ". ";
+        kray_itog = kray_start + kray[4];
       }
+
+
+      let oba;
+      if (proekcia_itog == proekcia[1] + " " || proekcia_itog == proekcia[2] + " ") {
+        oba = true;
+      }
+
 
 
       let zao_itog = "";
-      let zao_start = "Заострения ";
+      let zao_start = "заострения ";
       if (result_list.includes("zao_mezh")) {
-        zao_itog = zao_start + zao[0] + ". ";
+        zao_itog = zao_start + zao[0];
       } else if (result_list.includes("zao_med")) {
-        if (proekcia_itog == proekcia[1] + " " || proekcia_itog == proekcia[2] + " ") {
-          zao_itog = zao_start + zao[2] + ". ";
+        if (oba) {
+          zao_itog = zao_start + zao[2];
         } else {
-          zao_itog = zao_start + zao[1] + ". ";
+          zao_itog = "заострение " + zao[1];
         }
       }
-      // продолжить с надколенниками чтобы добавлялся когда надо и убирался также зависел от проекции
+
+      let nadk_itog = "";
+      if (result_list.includes("zao_nadk")) {
+        if (oba) {
+          nadk_itog = nadk[1];
+        } else {
+          nadk_itog = nadk[0];
+        }
+      }
+
+      if (zao_itog != "") {
+        kray_itog += ", ";
+      }
+
+      if (nadk_itog != "") {
+        if (zao_itog != "") {
+          zao_itog += " и ";
+        } else {
+          kray_itog += ", заострения ";
+        }
+      }
+
+      let kkr = kray_itog + zao_itog + nadk_itog + ". ";
+
+      let scler_itog = "";
+      let scler_start = "Субхондральный склероз";
+
+      if (result_list.includes("upl")) {
+        if (oba) {
+          scler_itog = scler_start + ": " + scler[0] + " " + scler[3] + " " + scler[4] + " " + scler[8];
+        } else {
+          scler_itog = scler_start + ": " + scler[0] + " " + scler[1] + " " + scler[2] + " " + scler[7];
+        }
+      } else if (result_list.includes("sub")) {
+        scler_itog = scler_start + " " + scler[4] + " " + scler[8];
+      } else if (result_list.includes("def")) {
+        scler_itog = scler_start + ", " + scler[5] + " " + scler[4] + " " + scler[8];
+      } else if (result_list.includes("plos")) {
+        scler_itog = scler_start + ", " + scler[9] + " " + scler[4] + " " + scler[8];
+      } else {
+        scler_itog = scler_start + " " + scler[6];
+      }
+
+      scler_itog += ". "
 
 
-      // <p>Субхондральный склероз не определяется.</p>
-      // <p>Заключение: рентген-данных за патологические изменения правого коленного сустава не получено.</p>
+      let conclusion_itog = "";
+      let conclusion_start = "Заключение: "
+      let knee_side;
+      let knee_side_arthro;
 
+      if (oba) {
+        knee_side = conclusion[7];
+        knee_side_arthro = conclusion[8];
+      } else if (result_list.includes("left_2x")) {
+        knee_side = conclusion[5];
+        knee_side_arthro = conclusion[6];
+      } else {
+        knee_side = conclusion[4];
+        knee_side_arthro = conclusion[6];
+      }
 
+      if (result_list.includes("nach")) {
+        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[1] + " " + knee_side + " " + knee_side_arthro + ". ";
+      } else if (result_list.includes("IV")) {
+        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[3] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[12] + " " + conclusion[13];
+      } else if (result_list.includes("III")) {
+        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[3] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[11] + " " + conclusion[13];
+      } else if (result_list.includes("II")) {
+        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[2] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[10] + " " + conclusion[13];
+      } else if (result_list.includes("I")) {
+        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[2] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[9] + " " + conclusion[13];
+      } else {
+        conclusion_itog = conclusion_start + conclusion[14] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[15];
+      }
 
+      conclusion_itog += ". "
 
 
       // pro_okno = document.getElementById("pro").innerHTML;
-      document.getElementById("show").innerText = proekcia_itog + kti + ". " + min_itog + kong + ". " + shel_itog + kray_itog + zao_itog;
+      document.getElementById("show").innerText = proekcia_itog + kti + min_itog + kong + shel_itog + kkr + scler_itog + conclusion_itog;
 
 
 
     }
-
 
 
   </script>
@@ -162,24 +243,39 @@
 
           <div class="my_card">
             <select class="form-control" id="list" name="list" multiple>
-              <option value="left_2x">левого в двух</option>
-              <option value="left_right_1x">правого и левого в прямой</option>
-              <option value="left_right_2x">правого и левого в двух</option>
+              <option value="left_2x">ЛЕВ 2х</option>
+              <option value="left_right_1x">ОБА 1х</option>
+              <option value="left_right_2x">ОБА 2х</option>
+              <option disabled>──────────</option>
               <option value="min_min">мин снижена</option>
               <option value="min_um">ум снижена</option>
               <option value="min_sniz">снижена</option>
               <option value="min_vir">выр снижена</option>
+              <option disabled>──────────</option>
               <option value="shel_leg">легко сужена</option>
               <option value="shel_um">ум сужена</option>
               <option value="shel_suz">сужена</option>
               <option value="shel_vir">выр сужена</option>
+              <option disabled>──────────</option>
               <option value="kray_viz">краевые виз</option>
               <option value="kray_min">краевые мин</option>
               <option value="kray_um">краевые ум</option>
               <option value="kray_vir">краевые выр</option>
+              <option disabled>──────────</option>
               <option value="zao_mezh">зао межмыщ</option>
               <option value="zao_med">зао мед межмыщ</option>
-              <option value="zao_nadk">зао надк</option>
+              <option value="zao_nadk">по краям надк</option>
+              <option disabled>──────────</option>
+              <option value="upl">уплотнение</option>
+              <option value="sub">суб склероз</option>
+              <option value="plos">суб склероз, уплощение</option>
+              <option value="def">суб склероз, деформация</option>
+              <option disabled>──────────</option>
+              <option value="nach">НАЧ</option>
+              <option value="I">I</option>
+              <option value="II">II</option>
+              <option value="III">III</option>
+              <option value="IV">IV</option>
             </select>
           </div>
 
@@ -250,8 +346,8 @@
       theme: 'theme2',
       selectAll: true,
       searchBox: true,
-      width: '250px',
-      height: '48px',
+      width: '700px',
+      height: '80px',
       // readOnly: true,
       onChange: function (checked, value, instance) {
         console.log(checked, value, instance);
@@ -261,7 +357,6 @@
       //autoHide: false
     }
   );
-
 
 
 
