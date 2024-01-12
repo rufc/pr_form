@@ -32,12 +32,14 @@
 }
 
 .msf_multiselect li.active {
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
+  /* background-color: #FBECF1; */
+  background-color: #fcff3f;
 }
 
 .msf_multiselect li {
   padding-left: 4px;
-  background-color: #ffffff;
+  background-color: #fff;
   cursor: pointer;
 }
 
@@ -55,8 +57,9 @@
 .msf_multiselect_container .msf_multiselect {
   /* max-height: 200px; */
   /* overflow: auto; */
+  columns: 3;
   background-color: #fff;
-  display: grid;
+  /* display: grid; */
   text-align: left;
   font-size: 18px;
   /* font-family:Lucida Grande, Tahoma, Arial, Verdana, sans-serif; */
@@ -90,7 +93,7 @@
 .msf_multiselect_container .closeBtn {
   padding-left: 4px;
   cursor: pointer;
-  color: #ff6060;
+  color: #ff4545;
 }
 
 .msf_multiselect_container .closeBtn.readOnly {
