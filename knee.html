@@ -49,7 +49,7 @@
 
       nadk = ["по краям надколенника", "по краям надколенников"];
 
-      scler = ["уплотнение", "суставной поверхности", "медиального мыщелка", "суставных поверхностей", "медиальных мыщелков", "деформация суставных поверхностей", "не определяется", "большеберцовой кости", "большеберцовой и бедренной костей", "уплощение суставных поверхностей"]
+      scler = ["уплотнение", "суставной поверхности", "медиального мыщелка", "суставных поверхностей", "медиальных мыщелков", "деформация суставных поверхностей", "не определяется", "большеберцовой кости", "большеберцовых костей", "уплощение суставных поверхностей", "уплощение суставной поверхности", "деформация суставной поверхности", "подчёркнута суставная поверхность", "подчёркнуты суставные поверхности", "большеберцовых и бедренных костей"];
 
       conclusion = ["рентген-признаки", "начальных проявлений остеоартроза", "остеоартроза", "деформирующего остеоартроза", "правого", "левого", "коленного сустава", "правого и левого", "коленных суставов", "I", "II", "III", "IV", "стадии (по J. Kellgren & J. Lawrence)", "рентген-данных за патологические изменения", "не получено"]
 
@@ -162,12 +162,36 @@
         } else {
           scler_itog = scler_start + ": " + scler[0] + " " + scler[1] + " " + scler[2] + " " + scler[7];
         }
+      } else if (result_list.includes("podch")) {
+        if (oba) {
+          scler_itog = scler_start + ": " + scler[13] + " " + scler[4] + " " + scler[8];
+        } else {
+          scler_itog = scler_start + ": " + scler[12] + " " + scler[2] + " " + scler[7];
+        }
       } else if (result_list.includes("sub")) {
-        scler_itog = scler_start + " " + scler[4] + " " + scler[8];
+        if (oba) {
+          scler_itog = scler_start + " " + scler[4] + " " + scler[8];
+        } else {
+          scler_itog = scler_start + " " + scler[2] + " " + scler[7];
+        }
+      } else if (result_list.includes("bol_bedr_def")) {
+        if (oba) {
+          scler_itog = scler_start + ", " + scler[5] + " " + scler[14];
+        } else {
+          scler_itog = scler_start + ", " + scler[11] + " " + scler[2] + " " + scler[7];
+        }
       } else if (result_list.includes("def")) {
-        scler_itog = scler_start + ", " + scler[5] + " " + scler[4] + " " + scler[8];
+        if (oba) {
+          scler_itog = scler_start + ", " + scler[5] + " " + scler[4] + " " + scler[8];
+        } else {
+          scler_itog = scler_start + ", " + scler[11] + " " + scler[2] + " " + scler[7];
+        }
       } else if (result_list.includes("plos")) {
-        scler_itog = scler_start + ", " + scler[9] + " " + scler[4] + " " + scler[8];
+        if (oba) {
+          scler_itog = scler_start + ", " + scler[9] + " " + scler[4] + " " + scler[8];
+        } else {
+          scler_itog = scler_start + ", " + scler[10] + " " + scler[2] + " " + scler[7];
+        }
       } else {
         scler_itog = scler_start + " " + scler[6];
       }
@@ -243,34 +267,37 @@
 
           <div class="my_card">
             <select class="form-control" id="list" name="list" multiple>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎ПРОЕКЦИЯ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
               <option value="left_2x">ЛЕВ 2х</option>
               <option value="left_right_1x">ОБА 1х</option>
               <option value="left_right_2x">ОБА 2х</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪▪▪︎▪︎МИНЕРАЛЬНАЯ▪︎▪︎▪︎▪▪︎▪︎▪▪︎▪︎</option>
               <option value="min_min">мин снижена</option>
               <option value="min_um">ум снижена</option>
               <option value="min_sniz">снижена</option>
               <option value="min_vir">выр снижена</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>▪︎▪︎▪︎▪▪︎▪︎СУСТАВНАЯ ЩЕЛЬ▪︎▪︎▪︎▪▪︎▪︎</option>
               <option value="shel_leg">легко сужена</option>
               <option value="shel_um">ум сужена</option>
               <option value="shel_suz">сужена</option>
               <option value="shel_vir">выр сужена</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎КРАЕВЫЕ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
               <option value="kray_viz">краевые виз</option>
               <option value="kray_min">краевые мин</option>
               <option value="kray_um">краевые ум</option>
               <option value="kray_vir">краевые выр</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎ЗАОСТРЕНИЯ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
               <option value="zao_mezh">зао межмыщ</option>
               <option value="zao_med">зао мед межмыщ</option>
               <option value="zao_nadk">по краям надк</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎СУБХ СКЛЕРОЗ▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
+              <option value="podch">подчёркнута</option>
               <option value="upl">уплотнение</option>
               <option value="sub">суб склероз</option>
               <option value="plos">суб склероз, уплощение</option>
               <option value="def">суб склероз, деформация</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option value="bol_bedr_def">суб склер, деф больш и бедр</option>
+              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎ЗАКЛЮЧЕНИЕ▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
               <option value="nach">НАЧ</option>
               <option value="I">I</option>
               <option value="II">II</option>

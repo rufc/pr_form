@@ -37,7 +37,7 @@
 
       ris = ["не изменён", "без особенностей", "компримирован", "усилен в прикорневых отделах"];
 
-      ris2 = ["небольшого пневмофиброза в базальных отделах", "умеренного пневмофиброза в базальных отделах", "центрального венозного застоя", "интерстициального компонента"];
+      ris2 = ["пневмосклероза в базальных отделах", "умеренного пневмофиброза в базальных отделах", "центрального венозного застоя", "интерстициального компонента"];
 
       bones_list = [
         "дегенеративно-дистрофические изменения грудного отдела позвоночника",
@@ -77,7 +77,7 @@
       let izm;
 
 
-      if (result_list.includes("neb_pnev")) {
+      if (result_list.includes("pnevmoscler")) {
         izm = true;
         ris_izm_itog = ris2[0];
       } else if (result_list.includes("um_pnev")) {
@@ -193,7 +193,7 @@
       } else if (result_list.includes("ochag_zat")) {
         ochag_itog = "очаговое затенение в проекции s8 левого легкого";
       } else {
-        ochag_itog = "без видимых очаговых"
+        ochag_itog = "без видимых очаговых изменений"
       }
 
       let inf_itog;
@@ -451,79 +451,82 @@
 
           <div class="my_card">
             <select class="form-control" id="list" name="list" multiple>
-              <option value="rg_2x">РГ 2х</option>
-              <option value="flg_1x">ФЛГ 1х</option>
-              <option value="flg_2x">ФЛГ 2х</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="bo">БЕЗ ОСОБ</option>
-              <option value="komp">КОМП</option>
-              <option value="usil">УСИЛ</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="neb_pnev">НЕБ пнев</option>
-              <option value="um_pnev">УМ пнев</option>
-              <option value="zastoy">ЗАСТОЙ</option>
-              <option value="inter">ИНТЕР</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="kor_um">УМ РАС</option>
-              <option value="kor_ras">РАС</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="str_soh">СТР СОХ</option>
-              <option value="malo">МАЛО</option>
-              <option value="nestr">НЕ СТР</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="kor_upl">УПЛ</option>
-              <option value="kor_ner_nech">НЕЧ НЕР</option>
-              <option value="kor_polic">ПОЛИЦ</option>
-              <option value="kor_r">СПРАВА</option>
-              <option value="kor_l">СЛЕВА</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="ochag_upl">ОЧАГ</option>
-              <option value="ochag_zat">ОЧАГ ЗАТ</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="sgush">СГУЩ</option>
-              <option value="neo_snizh">НЕО СНИЖ</option>
-              <option value="neo_upl">НЕО УПЛ</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="kup_dost">ДОСТ</option>
-              <option value="kup_nech_ner">НЕЧ НЕР</option>
-              <option value="kup_zat">ЗАТ</option>
-              <option value="kup_nez_rel">НЕЗ РЕЛ</option>
-              <option value="kup_rel">РЕЛ</option>
-              <option value="kup_spa">СПА</option>
-              <option value="kup_right">СПРАВА</option>
-              <option value="kup_left">СЛЕВА</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="sin_obl">ОБЛИТ</option>
-              <option value="sin_zaten">ЗАТ</option>
-              <option value="sin_later">ЛАТ</option>
-              <option value="sin_lat_zad">ЛАТ и ЗАД</option>
-              <option value="sin_right">СПРАВА</option>
-              <option value="sin_left">СЛЕВА</option>
-              <option value="sin_oba">ОБА</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="cardio_um_ras">УМ РАС</option>
-              <option value="cardio_ras">РАС</option>
-              <option value="cardio_vir_ras">ВЫР РАС</option>
-              <option value="cardio_l">ВЛЕВО</option>
-              <option value="cardio_pop">В ПОП</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="ao_bezos">БО</option>
-              <option value="ao_ud">УД</option>
-              <option value="ao_frag">ФРАГ</option>
-              <option value="ao_calc">КАЛЬЦ</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">ДЕГ</option>
-              <option value="грудной отдел позвоночника легко сколиотически деформирован">ЛЕГ СКОЛ</option>
-              <option value="грудной отдел позвоночника сколиотически деформирован">СКОЛ</option>
-              <option value="консолидированный перелом VI ребра справа">КОНС</option>
-              <option value="консолидированные переломы ребер VI, VII, VIII справа, VI, VII, VIII слева">КОНС МН
+              <option disabled>------------ПРОЕКЦИЯ</option>
+              <option value="rg_2x">рентген 2х</option>
+              <option value="flg_1x">флг 1х</option>
+              <option value="flg_2x">флг 2х</option>
+              <option disabled>------------ЛЁГОЧНЫЙ РИСУНОК</option>
+              <option value="bo">без особенностей</option>
+              <option value="komp">компримирован</option>
+              <option value="usil">усилен</option>
+              <option disabled>------------ИЗМЕНЁН ЗА СЧЁТ</option>
+              <option value="pnevmoscler">пневмосклероза</option>
+              <option value="um_pnev">умеренного пневмофиброза</option>
+              <option value="zastoy">центрального вен застоя</option>
+              <option value="inter">интерстициального комп</option>
+              <option disabled>------------КОРНИ РАСШИРЕНИЕ</option>
+              <option value="kor_um">умеренно расширены</option>
+              <option value="kor_ras">расширены</option>
+              <option disabled>------------КОРНИ СТРУКТУРА</option>
+              <option value="str_soh">структура сохранена</option>
+              <option value="malo">малоструктурные</option>
+              <option value="nestr">не структурные</option>
+              <option disabled>------------КОРНИ КОНТУРЫ</option>
+              <option value="kor_upl">уплотнён</option>
+              <option value="kor_ner_nech">с нечёткими и неровными</option>
+              <option value="kor_polic">с полицикличными</option>
+              <option value="kor_r">справа</option>
+              <option value="kor_l">слева</option>
+              <option disabled>------------ОЧАГИ</option>
+              <option value="ochag_upl">очаговое уплотнение</option>
+              <option value="ochag_zat">очаговое затенение</option>
+              <option disabled>------------ИНФИЛЬТРАЦИЯ</option>
+              <option value="sgush">сгущение</option>
+              <option value="neo_snizh">неоднородное снижение</option>
+              <option value="neo_upl">неоднородные уплотнения</option>
+              <option disabled>------------КУПОЛ ДИАФРАГМЫ</option>
+              <option value="kup_dost">достаточно чёткий ровный</option>
+              <option value="kup_nech_ner">нечёткий неровный</option>
+              <option value="kup_zat">затенён</option>
+              <option value="kup_nez_rel">незначительная релаксация</option>
+              <option value="kup_rel">релаксация</option>
+              <option value="kup_spa">спайки</option>
+              <option value="kup_right">справа</option>
+              <option value="kup_left">слева</option>
+              <option disabled>------------ПЛЕВРАЛЬНЫЕ СИНУСЫ</option>
+              <option value="sin_obl">облитерирован</option>
+              <option value="sin_zaten">затенён</option>
+              <option value="sin_later">латеральный</option>
+              <option value="sin_lat_zad">латеральный и задний</option>
+              <option value="sin_right">справа</option>
+              <option value="sin_left">слева</option>
+              <option value="sin_oba">с обеих сторон</option>
+              <option disabled>------------ГРАНИЦЫ СЕРДЦА</option>
+              <option value="cardio_um_ras">умеренно расширены</option>
+              <option value="cardio_ras">расширены</option>
+              <option value="cardio_vir_ras">выражено расширены</option>
+              <option value="cardio_l">влево</option>
+              <option value="cardio_pop">в поперечнике</option>
+              <option disabled>------------АОРТА</option>
+              <option value="ao_bezos">без особенностей</option>
+              <option value="ao_ud">удлинена</option>
+              <option value="ao_frag">фрагм кальцинирована</option>
+              <option value="ao_calc">кальцинирована</option>
+              <option disabled>------------КОСТНЫЕ СТРУКТУРЫ</option>
+              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">дег-дистрофические
               </option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option value="грудной отдел позвоночника легко сколиотически деформирован">легкий сколиоз</option>
+              <option value="грудной отдел позвоночника сколиотически деформирован">сколиоз</option>
+              <option value="консолидированный перелом VI ребра справа">консолид перелом</option>
+              <option value="консолидированные переломы ребер VI, VII, VIII справа, VI, VII, VIII слева">консолид
+                переломы
+              </option>
+              <option disabled>------------ДОПОЛНЕНИЯ</option>
               <option value="С обеих сторон неравномерно уплотнена апикальная плевра">АПИК</option>
               <option value="С обеих сторон затенена апикальная плевра">АПИК ЗАТ</option>
               <option value="Обызвествеление реберных хрящей">ХРЯЩ</option>
               <option value="Состояние после оперативного вмешательства">ОПЕР</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
+              <option disabled>------------ЗАКЛЮЧЕНИЕ</option>
               <option value="conc_pat">ПАТ</option>
               <option value="conc_svej_pat">СВЕЖ ПАТ</option>
               <option value="conc_pred">ПРЕД</option>

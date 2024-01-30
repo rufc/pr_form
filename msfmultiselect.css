@@ -41,6 +41,7 @@
   padding-left: 4px;
   background-color: #fff;
   cursor: pointer;
+  font-size: 18px;
 }
 
 
@@ -57,7 +58,7 @@
 .msf_multiselect_container .msf_multiselect {
   /* max-height: 200px; */
   /* overflow: auto; */
-  columns: 3;
+  columns: 2;
   background-color: #fff;
   /* display: grid; */
   text-align: left;
