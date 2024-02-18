@@ -9,7 +9,8 @@
   <script type="text/javascript" src="view.js"></script>
   <link rel="stylesheet" type="text/css" href="msfmultiselect.css" />
   <script src="msfmultiselect.js"></script>
-
+  <script type="text/javascript" src="autorep.js"></script>
+  <script type="text/javascript" src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
 
 
 
@@ -32,12 +33,53 @@
         "На обзорной рентгенограмме органов грудной клетки в прямой проекции",
         "На обзорных рентгенограммах органов грудной клетки в двух проекциях",
         "На обзорной флюорограмме органов грудной клетки в прямой проекции",
-        "На обзорных флюорограммах органов грудной клетки в двух проекциях"
+        "На обзорных флюорограммах органов грудной клетки в двух проекциях",
+        "с разворотом вправо",
+        "с умеренным разворотом вправо",
+        "с выраженным разворотом вправо",
+        "на выдохе",
+        "на неполном вдохе",
+        "с артефактами от одежды",
+        "с динамическими артефактами",
+        "c повышенной жёсткостью",
+        "c повышенной мягкостью",
       ];
 
-      ris = ["не изменён", "без особенностей", "компримирован", "усилен в прикорневых отделах"];
+      ris = [
+        "не изменён",
+        "без особенностей",
+        "компримирован",
+        "усилен в прикорневых отделах"
+      ];
 
-      ris2 = ["пневмосклероза в базальных отделах", "умеренного пневмофиброза в базальных отделах", "центрального венозного застоя", "интерстициального компонента"];
+      ris2 = [
+        "пневмосклероза в базальных отделах",
+        "пневмофиброза в базальных отделах",
+        "центрального венозного застоя",
+        "интерстициального компонента"
+      ];
+
+      korni = [
+        "умеренно расширены",
+        "расширен справа",
+        "структура сохранена",
+        "малоструктурные",
+        "не структурные",
+        "уплотнён справа",
+        "с нечёткими и неровными контурами справа",
+        "с полицикличными контурами справа"
+      ];
+
+      och = [
+        "плотная очаговая тень в s6 правого лёгкого",
+        "кальцинированный очаг в s6 правого лёгкого",
+        "очаговая тень средней плотности в проекции верхней доли правого лёгкого",
+      ]
+
+      inf = [
+        "неоднородное снижение пневматизации в s8 правого лёгкого",
+        "неоднородные уплотнения лёгочной ткани в s8 правого лёгкого"
+      ]
 
       bones_list = [
         "дегенеративно-дистрофические изменения грудного отдела позвоночника",
@@ -54,170 +96,103 @@
         "Состояние после оперативного вмешательства"
       ]
 
-      // conclusion = ["рентген-признаки", "начальных проявлений остеоартроза", "остеоартроза", "деформирующего остеоартроза", "правого", "левого", "коленного сустава", "правого и левого", "коленных суставов", "I", "II", "III", "IV", "стадии (по J. Kellgren & J. Lawrence)", "рентген-данных за патологические изменения", "не получено"];
+      aorta_list = [
+        "без особеннoстей",   //английская о чтобы не было повтора
+        "удлинена",
+        "извитая",
+        "уплотнена",
+        "фрагментарно кальциниpована", //английская p чтобы не было повтора
+        "кальцинирована"
+      ]
 
+      // ПРОЕКЦИЯ
 
       let proekcia_itog = "";
-      if (result_list.includes("rg_2x")) {
-        proekcia_itog = proekcia[1];
-      } else if (result_list.includes("flg_1x")) {
-        proekcia_itog = proekcia[2];
-      } else if (result_list.includes("flg_2x")) {
-        proekcia_itog = proekcia[3];
-      } else {
-        proekcia_itog = proekcia[0];
+      for (i = 0; i < proekcia.length; ++i) {
+        if (result_list.includes(proekcia[i])) {
+          proekcia_itog += proekcia[i] + ", ";
+        }
       }
+      proekcia_itog = proekcia_itog.replace(/,(?![^,]*,)/m, '');
 
-      proekcia_itog += " ";
+      // ЛЁГОЧНЫЙ РИСУНОК
 
-
-      let ris_start = "лёгочный рисунок";
+      let ris_start = "лёгочный рисунок ";
       let ris_itog = "";
-      let ris_izm_itog = "";
-      let izm;
-
-
-      if (result_list.includes("pnevmoscler")) {
-        izm = true;
-        ris_izm_itog = ris2[0];
-      } else if (result_list.includes("um_pnev")) {
-        ris_izm_itog = ris2[1];
-        izm = true;
-      }
-
-      if (result_list.includes("zastoy")) {
-        if (ris_izm_itog > "") {
-          ris_izm_itog += ", " + ris2[2];
-        } else {
-          ris_izm_itog += ris2[2];
-        }
-        izm = true;
-      }
-
-      if (result_list.includes("inter")) {
-        if (ris_izm_itog > "") {
-          ris_izm_itog += ", " + ris2[3];
-        } else {
-          ris_izm_itog += ris2[3];
-        }
-        izm = true;
-      }
-
-      if (result_list.includes("bo")) {
-        ris_itog = " " + ris[1];
-        ris_izm_itog = "";
-      } else if (result_list.includes("komp")) {
-        ris_itog = " " + ris[2];
-        if (izm == true) {
-          ris_itog += ", изменён за счёт ";
-        }
-      } else if (result_list.includes("usil")) {
-        ris_itog = " " + ris[3];
-        if (izm == true) {
-          ris_itog += ", изменён за счёт ";
-        }
-      } else {
-        if (izm != true) {
-          ris_itog = " не изменён";
-          ris_izm_itog = "";
-        } else {
-          ris_itog = " изменён за счёт ";
+      for (i = 0; i < ris.length; ++i) {
+        if (result_list.includes(ris[i])) {
+          ris_itog += ris[i] + ", ";
         }
       }
 
-
-      ris_itog = ris_start + ris_itog + ris_izm_itog + ". ";
-
-
-      let kor_itog;
-      let kor_start = "Корни лёгких";
-      let kor_itog1;
-      let kor_itog2;
-      let kor_itog3;
-      let kor_side;
-      let kor_side_flag;
-
-      if (result_list.includes("kor_r")) {
-        kor_side = " " + "справа";
-      } else if (result_list.includes("kor_l")) {
-        kor_side = " " + "слева";
-      } else {
-        kor_side = "";
-      }
-
-      if (kor_side > "") {
-        kor_side_flag = true;
-      }
-
-      if (result_list.includes("kor_um")) {
-        kor_itog1 = "умеренно расширены";
-      } else if (result_list.includes("kor_ras")) {
-        kor_itog1 = "расширены";
-      } else {
-        kor_itog1 = "не расширены";
-      }
-
-      if (result_list.includes("str_soh")) {
-        kor_itog2 = "структура сохранена";
-      } else if (result_list.includes("malo")) {
-        kor_itog2 = "малоструктурные";
-      } else if (result_list.includes("nestr")) {
-        kor_itog2 = "неструктурные";
-      } else {
-        kor_itog2 = "структурные";
-      }
-
-      if (result_list.includes("kor_upl")) {
-        kor_itog3 = ", " + "уплотнены";
-        if (kor_side_flag) {
-          kor_itog3 = ", " + "уплотнён";
-        }
-      } else {
-        kor_itog3 = "";
-      }
-
-      if (result_list.includes("kor_ner_nech")) {
-        kor_itog3 = kor_itog3 + ", " + "с нечёткими и неровными контурами";
-      }
-      if (result_list.includes("kor_polic")) {
-        kor_itog3 = kor_itog3 + ", " + "с полицикличными контурами";
-      }
-
-      kor_itog = kor_start + " " + kor_itog1 + ", " + kor_itog2 + kor_itog3 + kor_side + ". ";
-
-
-      let ochag_start = "Лёгочные поля"
-      let ochag_itog;
-      if (result_list.includes("ochag_upl")) {
-        ochag_itog = "плотная очаговая тень в среднем отделе правого легкого";
-      } else if (result_list.includes("ochag_zat")) {
-        ochag_itog = "очаговое затенение в проекции s8 левого легкого";
-      } else {
-        ochag_itog = "без видимых очаговых изменений"
-      }
-
-      let inf_itog;
-      if (result_list.includes("sgush")) {
-        inf_itog = "сгущение в медиобазальном отделе левого легкого";
-      } else if (result_list.includes("neo_snizh")) {
-        inf_itog = "неоднородное снижение пневматизации в проекции s6 левого";
-      } else if (result_list.includes("neo_upl")) {
-        inf_itog = "неоднородные уплотнения легочной ткани в проекции s6 правого";
-      } else {
-        if (ochag_itog.includes("без видимых очаговых")) {
-          inf_itog = "и инфильтративных изменений";
-        } else {
-          inf_itog = "без видимых инфильтративных изменений";
+      let ris_itog2 = "изменён за счёт ";
+      for (i = 0; i < ris2.length; ++i) {
+        if (result_list.includes(ris2[i])) {
+          ris_itog2 += ris2[i] + ", ";
         }
       }
 
-      if (inf_itog.includes("и инфильтративных изменений")) {
-        inf_itog = " " + inf_itog + ". ";
-        ochag_itog = ochag_start + " " + ochag_itog;
-      } else {
-        inf_itog = ", " + inf_itog + ". ";
-        ochag_itog = ochag_start + ": " + ochag_itog;
+      if (ris_itog2 == "изменён за счёт ") {
+        ris_itog2 = "";
       }
+
+      ris_itog = ris_start + ris_itog + ris_itog2;
+
+      if (ris_itog == "лёгочный рисунок ") {
+        ris_itog = "лёгочный рисунок не изменён. ";
+      }
+
+      ris_itog = ris_itog.replace(/,(?![^,]*,)/m, '.');
+
+      // КОРНИ ЛЁГКИХ
+
+      let korni_itog = "";
+      let korni_start = "Корни лёгких: ";
+      for (i = 0; i < korni.length; ++i) {
+        if (result_list.includes(korni[i])) {
+          korni_itog += korni[i] + ", ";
+        }
+      }
+
+      korni_itog = korni_start + korni_itog.replace(/,(?![^,]*,)/m, '.');
+
+      if (korni_itog == "Корни лёгких: ") {
+        korni_itog = "Корни лёгких не расширены, структурные. ";
+      }
+
+      // ЛЁГОЧНЫЕ ПОЛЯ
+
+      let polya_start = "Лёгочные поля: "
+      let ochag_itog = "";
+      for (i = 0; i < och.length; ++i) {
+        if (result_list.includes(och[i])) {
+          ochag_itog += och[i] + ", ";
+        }
+      }
+
+      let inf_itog = "";
+      for (i = 0; i < inf.length; ++i) {
+        if (result_list.includes(inf[i])) {
+          inf_itog += inf[i] + ", ";
+        }
+      }
+
+      if (inf_itog == "" && ochag_itog == "") {
+        polya_start = "Лёгочные поля без видимых очаговых и инфильтративных изменений. "
+        ochag_itog = ""
+        inf_itog = "";
+      } else {
+        if (ochag_itog == "") {
+          ochag_itog = "без видимых очаговых изменений, ";
+        }
+        if (inf_itog == "") {
+          inf_itog = "без видимых инфильтративных изменений, ";
+        }
+      }
+
+      polya_itog = polya_start + ochag_itog + inf_itog.replace(/,(?![^,]*,)/m, '.');
+
+
 
 
       let kup_itog = "";
@@ -352,22 +327,24 @@
       cardio_itog = cardio_start + cardio_itog + cardio_side + ". ";
 
 
+      // АОРТА
+
       let aorta_itog = "";
       let aorta_start = "Аорта ";
 
-      if (result_list.includes("ao_bezos")) {
-        aorta_itog = "без особенностей";
-      } else if (result_list.includes("ao_ud")) {
-        aorta_itog = "удлинена";
-      } else if (result_list.includes("ao_frag")) {
-        aorta_itog = "фрагментарно кальцинирована";
-      } else if (result_list.includes("ao_calc")) {
-        aorta_itog = "кальцинирована";
-      } else {
-        aorta_itog = "не изменена";
+      for (i = 0; i < aorta_list.length; ++i) {
+        if (result_list.includes(aorta_list[i])) {
+          aorta_itog += aorta_list[i] + ", ";
+        }
       }
 
-      aorta_itog = aorta_start + aorta_itog + ". "
+
+      if (aorta_itog == "") {
+        aorta_itog = "не изменена. "
+      }
+
+      aorta_itog = aorta_itog.replace(/,(?![^,]*,)/m, '.');
+      aorta_itog = aorta_start + aorta_itog;
 
 
       let bones_itog = "";
@@ -417,11 +394,20 @@
 
 
 
-      document.getElementById("show").innerText = proekcia_itog + ris_itog + kor_itog + ochag_itog + inf_itog + kup_itog + sin_itog + cardio_itog + aorta_itog + bones_itog + add_itog + conc_itog;
+      document.getElementById("show").innerText = proekcia_itog + ris_itog + korni_itog + polya_itog + kup_itog + sin_itog + cardio_itog + aorta_itog + bones_itog + add_itog + conc_itog;
 
       // pro_okno = document.getElementById("pro").innerHTML;
 
     }
+
+
+
+    function copy_to_clipboard(show) {
+      document.getElementById(show).select();
+      document.execCommand('copy');
+    }
+
+
 
 
   </script>
@@ -452,38 +438,50 @@
           <div class="my_card">
             <select class="form-control" id="list" name="list" multiple>
               <option disabled>------------ПРОЕКЦИЯ</option>
-              <option value="rg_2x">рентген 2х</option>
-              <option value="flg_1x">флг 1х</option>
-              <option value="flg_2x">флг 2х</option>
+              <option value="На обзорной рентгенограмме органов грудной клетки в прямой проекции">рентген 1х</option>
+              <option value="На обзорных рентгенограммах органов грудной клетки в двух проекциях">рентген 2х</option>
+              <option value="На обзорной флюорограмме органов грудной клетки в прямой проекции">флг 1х</option>
+              <option value="На обзорных флюорограммах органов грудной клетки в двух проекциях">флг 2х</option>
+              <option value="с разворотом вправо">с разворотом</option>
+              <option value="с умеренным разворотом вправо">с умеренным разворотом</option>
+              <option value="с выраженным разворотом вправо">с выраженным разворотом</option>
+              <option value="на выдохе">на выдохе</option>
+              <option value="на неполном вдохе">на неполном вдохе</option>
+              <option value="с артефактами от одежды">с артефактами от одежды</option>
+              <option value="с динамическими артефактами">с динамическими артефактами</option>
+              <option value="c повышенной жёсткостью">c повышенной жёсткостью</option>
+              <option value="c повышенной мягкостью">c повышенной мягкостью</option>
+
               <option disabled>------------ЛЁГОЧНЫЙ РИСУНОК</option>
-              <option value="bo">без особенностей</option>
-              <option value="komp">компримирован</option>
-              <option value="usil">усилен</option>
-              <option disabled>------------ИЗМЕНЁН ЗА СЧЁТ</option>
-              <option value="pnevmoscler">пневмосклероза</option>
-              <option value="um_pnev">умеренного пневмофиброза</option>
-              <option value="zastoy">центрального вен застоя</option>
-              <option value="inter">интерстициального комп</option>
-              <option disabled>------------КОРНИ РАСШИРЕНИЕ</option>
-              <option value="kor_um">умеренно расширены</option>
-              <option value="kor_ras">расширены</option>
-              <option disabled>------------КОРНИ СТРУКТУРА</option>
-              <option value="str_soh">структура сохранена</option>
-              <option value="malo">малоструктурные</option>
-              <option value="nestr">не структурные</option>
-              <option disabled>------------КОРНИ КОНТУРЫ</option>
-              <option value="kor_upl">уплотнён</option>
-              <option value="kor_ner_nech">с нечёткими и неровными</option>
-              <option value="kor_polic">с полицикличными</option>
-              <option value="kor_r">справа</option>
-              <option value="kor_l">слева</option>
+              <option value="без особенностей">без особенностей</option>
+              <option value="компримирован">компримирован</option>
+              <option value="усилен в прикорневых отделах">усилен в прикорневых отделах</option>
+              <option value="пневмосклероза в базальных отделах">пневмосклероз</option>
+              <option value="пневмофиброза в базальных отделах">пневмофиброз</option>
+              <option value="центрального венозного застоя">центральный венозный застой</option>
+              <option value="интерстициального компонента">интерстициальный комп</option>
+
+              <option disabled>------------КОРНИ ЛЁГКИХ</option>
+              <option value="умеренно расширены">умеренно расширены</option>
+              <option value="расширен справа">расширен справа</option>
+              <option value="структура сохранена">структура сохранена</option>
+              <option value="малоструктурные">малоструктурные</option>
+              <option value="не структурные">не структурные</option>
+              <option value="уплотнён справа">уплотнён справа</option>
+              <option value="с нечёткими и неровными контурами справа">с нечёткими и неровными контурами справа</option>
+              <option value="с полицикличными контурами справа">с полицикличными контурами справа</option>
+
               <option disabled>------------ОЧАГИ</option>
-              <option value="ochag_upl">очаговое уплотнение</option>
-              <option value="ochag_zat">очаговое затенение</option>
+              <option value="плотная очаговая тень в s6 правого лёгкого">плотный очаг</option>
+              <option value="очаговая тень средней плотности в проекции верхней доли правого лёгкого">очаговая тень
+                средней</option>
+              <option value="кальцинированный очаг в s6 правого лёгкого">кальцинированный очаг</option>
+
               <option disabled>------------ИНФИЛЬТРАЦИЯ</option>
-              <option value="sgush">сгущение</option>
-              <option value="neo_snizh">неоднородное снижение</option>
-              <option value="neo_upl">неоднородные уплотнения</option>
+              <option value="неоднородное снижение пневматизации в s8 правого лёгкого">снижение пневматизации</option>
+              <option value="неоднородные уплотнения лёгочной ткани в s8 правого лёгкого">неоднородные уплотнения
+              </option>
+
               <option disabled>------------КУПОЛ ДИАФРАГМЫ</option>
               <option value="kup_dost">достаточно чёткий ровный</option>
               <option value="kup_nech_ner">нечёткий неровный</option>
@@ -508,24 +506,25 @@
               <option value="cardio_l">влево</option>
               <option value="cardio_pop">в поперечнике</option>
               <option disabled>------------АОРТА</option>
-              <option value="ao_bezos">без особенностей</option>
-              <option value="ao_ud">удлинена</option>
-              <option value="ao_frag">фрагм кальцинирована</option>
-              <option value="ao_calc">кальцинирована</option>
+              <option value="без особеннoстей">без особенноcтей</option>
+              <option value="удлинена">удлинена</option>
+              <option value="извитая">извитая</option>
+              <option value="уплотнена">уплотнена</option>
+              <option value="фрагментарно кальциниpована">фрагментарно кальцинирована</option>
+              <option value="кальцинирована">кальцинирована</option>
               <option disabled>------------КОСТНЫЕ СТРУКТУРЫ</option>
-              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">дег-дистрофические
-              </option>
-              <option value="грудной отдел позвоночника легко сколиотически деформирован">легкий сколиоз</option>
-              <option value="грудной отдел позвоночника сколиотически деформирован">сколиоз</option>
-              <option value="консолидированный перелом VI ребра справа">консолид перелом</option>
-              <option value="консолидированные переломы ребер VI, VII, VIII справа, VI, VII, VIII слева">консолид
-                переломы
-              </option>
+              <option value="дегенеративно-дистрофические изменения грудного отдела позвоночника">
+                дегенеративно-дистрофические</option>
+              <option value="грудной отдел позвоночника легко сколиотически деформирован">легкая сколиотическая</option>
+              <option value="грудной отдел позвоночника сколиотически деформирован">сколиотическая</option>
+              <option value="консолидированный перелом VI ребра справа">консолидированный перелом</option>
+              <option value="консолидированные переломы ребер VI, VII, VIII справа, VI, VII, VIII слева">
+                консолидированные переломы</option>
               <option disabled>------------ДОПОЛНЕНИЯ</option>
-              <option value="С обеих сторон неравномерно уплотнена апикальная плевра">АПИК</option>
-              <option value="С обеих сторон затенена апикальная плевра">АПИК ЗАТ</option>
-              <option value="Обызвествеление реберных хрящей">ХРЯЩ</option>
-              <option value="Состояние после оперативного вмешательства">ОПЕР</option>
+              <option value="С обеих сторон неравномерно уплотнена апикальная плевра">уплотнена апикальная</option>
+              <option value="С обеих сторон затенена апикальная плевра">затенена апикальная</option>
+              <option value="Обызвествеление реберных хрящей">обызвествеление хрящей</option>
+              <option value="Состояние после оперативного вмешательства">состояние после оперативного</option>
               <option disabled>------------ЗАКЛЮЧЕНИЕ</option>
               <option value="conc_pat">ПАТ</option>
               <option value="conc_svej_pat">СВЕЖ ПАТ</option>
@@ -561,25 +560,17 @@
           </ul>
         </nav>
       </div>
+      <br>
 
+
+      <textarea variable="yname" id="show" class="mytextarea" rows="22" cols="46"></textarea>
 
       <li class="buttons">
-        <input type="hidden" name="form_id" value="48871" />
-        <input id="saveForm" class="button_text" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+        <input id="saveForm" class="my_btn-new" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+        <input type="button" class="my_btn-new" value="Скопировать" onclick="copy_to_clipboard('show');">
       </li>
 
-
-
-
-      <textarea variable="yname" id="show" class="mytextarea" rows="20" cols="70"></textarea>
-
-
-
-
     </div>
-
-
-
 
 
 

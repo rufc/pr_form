@@ -79,7 +79,7 @@ body {
 	font-size: 18px;
 	box-shadow: 1px 3px 5px #393939;
 	position: fixed;
-	min-height: 600px;
+	min-height: 800px;
 }
 
 
@@ -172,10 +172,30 @@ body {
 
 
 .mytextarea {
-	font-size: 14px;
+	font-size: 20px;
+	font-family: Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+	/* font-family: 'Times New Roman', Times, serif */
 }
 
 
+
+.my_btn-new {
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #0B63F6;
+    box-shadow: 0 5px 0 #003CC5;
+	font-size: 24px;
+	padding: 8px 20px;
+}
+
+.my_btn-new:hover {
+	background: #003CC5;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+}
 
 
 
