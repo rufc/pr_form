@@ -3,6 +3,7 @@
  * https://github.com/minisuperfiles/MSFmultiSelect
  * https://minisuperfiles.blogspot.com/p/documentation.html?project=msfmultiselect
  */
+
 class MSFmultiSelect {
   constructor(select, settings = {}) {
     this.select = select;
@@ -23,7 +24,10 @@ class MSFmultiSelect {
 
     this.create();
     this.log();
+
+    this.searchBox.focus();   //добавил курсор в поле поиска при загрузке страницы
   }
+
   _getSettings(settings) {
     var defultSettings = {
       theme: 'theme1',

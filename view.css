@@ -62,7 +62,7 @@ body {
 }
 
 #form_item_1 {
-	margin-left: 50px;
+	margin-left: 20px;
 	margin-top: 10px;
 	text-align: left;
 	background: #FFF3E4;
@@ -70,7 +70,7 @@ body {
 }
 
 #form_item_2 {
-	margin-left: 820px;
+	margin-left: 780px;
 	margin-top: 10px;
 	text-align: center;
 	background: #fff;
@@ -79,7 +79,7 @@ body {
 	font-size: 18px;
 	box-shadow: 1px 3px 5px #393939;
 	position: fixed;
-	min-height: 800px;
+	min-height: 540px;
 }
 
 
@@ -172,7 +172,7 @@ body {
 
 
 .mytextarea {
-	font-size: 20px;
+	font-size: 14px;
 	font-family: Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
 	/* font-family: 'Times New Roman', Times, serif */
 }

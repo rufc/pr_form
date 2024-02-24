@@ -1,0 +1,155 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Голеностопный сустав</title>
+  <link rel="stylesheet" type="text/css" href="view.css" media="all">
+  <script type="text/javascript" src="view.js"></script>
+  <link rel="stylesheet" type="text/css" href="msfmultiselect.css" />
+  <script src="msfmultiselect.js"></script>
+  <script type="text/javascript" src="autorep.js"></script>
+  <script type="text/javascript" src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <script>
+    function testVariable() {
+      debugger
+
+      let result_list = [];
+      if (document.getElementById("list").length > 0) {
+        for (let i = 0; i < document.getElementById("list").length; i++) {
+          let option = document.getElementById("list").options[i];
+          if (option.selected) {
+            result_list = option.value;
+          }
+        }
+      }
+
+      document.getElementById("show").innerText = result_list;
+
+      // pro_okno = document.getElementById("pro").innerHTML;
+
+    }
+
+
+
+    function copy_to_clipboard(show) {
+      document.getElementById(show).select();
+      document.execCommand('copy');
+    }
+
+
+
+
+  </script>
+
+
+
+
+
+</head>
+
+<body id="main_body">
+
+  <div id="form_container">
+
+    <div id="form_item_1">
+
+
+      <form id="form_48871" class="appnitro" method="post" action="">
+        <div class="form_description">
+          <h2>Голеностопный сустав</h2>
+          <p><!-- description --></p>
+        </div>
+
+        <div class="my_container">
+
+
+          <div class="my_card">
+            <select class="form-control" id="list" name="list" multiple>
+              <option value="На обзорных рентгенограммах правого голеностопного сустава в гипсе на фоне артефактов рентген-признаков костных травматических изменений убедительно не выявлено. Замыкательная пластинка в видимых отделах не нарушена. Суставные поверхности конгруэнтные. Рекомендации: рентген-контроль в динамике через 2-3 недели без гипса.">в гипсе трав убед не выявлено</option>
+            </select>
+          </div>
+
+        </div>
+
+
+      </form>
+
+
+    </div>
+
+
+
+
+
+    <div id="form_item_2">
+
+
+      <div class="page">
+        <nav class="page__menu menu">
+          <ul class="menu__list r-list">
+            <li class="menu__group"><a href="thorax.html" class="menu__link r-link text-underlined">ОГК</a></li>
+            <li class="menu__group"><a href="knee.html" class="menu__link r-link text-underlined">КОЛ</a></li>
+            <li class="menu__group"><a href="ankle.html" class="menu__link r-link text-underlined">ГОЛ</a></li>
+            <li class="menu__group"><a href="hip.html" class="menu__link r-link text-underlined">ТБС</a></li>
+            <li class="menu__group"><a href="wrist.html" class="menu__link r-link text-underlined">ЛУЧ</a></li>
+          </ul>
+            <ul class="menu__list r-list">
+            <li class="menu__group"><a href="shoulder.html" class="menu__link r-link text-underlined">ПЛЕЧ</a></li>
+            <li class="menu__group"><a href="cervicalis.html" class="menu__link r-link text-underlined">ШОП</a></li>
+            <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">ГОП</a></li>
+            <li class="menu__group"><a href="lumbalis.html" class="menu__link r-link text-underlined">ПОП</a></li>
+          </ul>
+        </nav>
+      </div>
+      <br>
+
+
+      <textarea variable="yname" id="show" class="mytextarea" rows="18" cols="46"></textarea>
+
+      <li class="buttons">
+        <input id="saveForm" class="my_btn-new" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+        <input type="button" class="my_btn-new" value="Скопировать" onclick="copy_to_clipboard('show');">
+      </li>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</body>
+
+<script>
+
+  var list = new MSFmultiSelect(
+    document.querySelector('#list'),
+    {
+      theme: 'theme2',
+      selectAll: true,
+      searchBox: true,
+      width: '700px',
+      height: '80px',
+      // readOnly: true,
+      onChange: function (checked, value, instance) {
+        console.log(checked, value, instance);
+      },
+      // appendTo: '#myselect',
+      autoHide: false
+    }
+  )
+
+
+
+</script>
+
+
+
+</html>

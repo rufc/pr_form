@@ -9,6 +9,8 @@
   <script type="text/javascript" src="view.js"></script>
   <link rel="stylesheet" type="text/css" href="msfmultiselect.css" />
   <script src="msfmultiselect.js"></script>
+  <script type="text/javascript" src="autorep.js"></script>
+  <script type="text/javascript" src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
 
 
 
@@ -18,225 +20,27 @@
     function testVariable() {
       debugger
 
-
-
       let result_list = [];
       if (document.getElementById("list").length > 0) {
         for (let i = 0; i < document.getElementById("list").length; i++) {
           let option = document.getElementById("list").options[i];
           if (option.selected) {
-            result_list += option.value;
+            result_list = option.value;
           }
         }
       }
 
-
-
-      proekcia = [
-        "На обзорных рентгенограммах левого коленного сустава в двух проекциях",
-        "На обзорных рентгенограммах правого и левого коленных суставов в прямой проекции",
-        "На обзорных рентгенограммах правого и левого коленных суставов в двух проекциях",
-        "На обзорных рентгенограммах правого коленного сустава в двух проекциях"
-      ];
-
-      kti = ["данных за костные травматические и деструктивные изменения не получено"];
-      min = ["минимально снижена", "умеренно снижена", "снижена", "выражено снижена", "сохранена"];
-      kong = ["Суставные поверхности конгруэнтные"];
-      shel = ["легко сужена", "умеренно сужена", "сужена", "выражено сужена", "не сужена"];
-      kray = ["визуализируются", "минимальные", "умеренные", "выраженные", "не визуализируются"];
-
-      zao = ["межмыщелковых возвышений", "медиального межмыщелкового возвышения", "медиальных межмыщелковых возвышений"];
-
-      nadk = ["по краям надколенника", "по краям надколенников"];
-
-      scler = ["уплотнение", "суставной поверхности", "медиального мыщелка", "суставных поверхностей", "медиальных мыщелков", "деформация суставных поверхностей", "не определяется", "большеберцовой кости", "большеберцовых костей", "уплощение суставных поверхностей", "уплощение суставной поверхности", "деформация суставной поверхности", "подчёркнута суставная поверхность", "подчёркнуты суставные поверхности", "большеберцовых и бедренных костей"];
-
-      conclusion = ["рентген-признаки", "начальных проявлений остеоартроза", "остеоартроза", "деформирующего остеоартроза", "правого", "левого", "коленного сустава", "правого и левого", "коленных суставов", "I", "II", "III", "IV", "стадии (по J. Kellgren & J. Lawrence)", "рентген-данных за патологические изменения", "не получено"]
-
-      let proekcia_itog = "";
-      if (result_list.includes("left_2x")) {
-        proekcia_itog = proekcia[0] + " ";
-      } else if (result_list.includes("left_right_1x")) {
-        proekcia_itog = proekcia[1] + " ";
-      } else if (result_list.includes("left_right_2x")) {
-        proekcia_itog = proekcia[2] + " ";
-      } else {
-        proekcia_itog = proekcia[3] + " ";
-      }
-
-      kti += ". ";
-
-      let min_itog = "";
-      let min_start = "Минеральная плотность костей ";
-      if (result_list.includes("min_min")) {
-        min_itog = min_start + min[0] + ". ";
-      } else if (result_list.includes("min_um")) {
-        min_itog = min_start + min[1] + ". ";
-      } else if (result_list.includes("min_sniz")) {
-        min_itog = min_start + min[2] + ". ";
-      } else if (result_list.includes("min_vir")) {
-        min_itog = min_start + min[3] + ". ";
-      } else {
-        min_itog = min_start + min[4] + ". ";
-      }
-
-      kong += ". ";
-
-      let shel_itog = "";
-      let shel_start = "Рентгеновская суставная щель ";
-      if (result_list.includes("shel_leg")) {
-        shel_itog = shel_start + shel[0] + ". ";
-      } else if (result_list.includes("shel_um")) {
-        shel_itog = shel_start + shel[1] + ". ";
-      } else if (result_list.includes("shel_suz")) {
-        shel_itog = shel_start + shel[2] + ". ";
-      } else if (result_list.includes("shel_vir")) {
-        shel_itog = shel_start + shel[3] + ". ";
-      } else {
-        shel_itog = shel_start + shel[4] + ". ";
-      }
-
-      let kray_itog = "";
-      let kray_start = "Краевые костные разрастания ";
-      if (result_list.includes("kray_viz")) {
-        kray_itog = kray_start + kray[0];
-      } else if (result_list.includes("kray_min")) {
-        kray_itog = kray_start + kray[1];
-      } else if (result_list.includes("kray_um")) {
-        kray_itog = kray_start + kray[2];
-      } else if (result_list.includes("kray_vir")) {
-        kray_itog = kray_start + kray[3];
-      } else {
-        kray_itog = kray_start + kray[4];
-      }
-
-
-      let oba;
-      if (proekcia_itog == proekcia[1] + " " || proekcia_itog == proekcia[2] + " ") {
-        oba = true;
-      }
-
-
-
-      let zao_itog = "";
-      let zao_start = "заострения ";
-      if (result_list.includes("zao_mezh")) {
-        zao_itog = zao_start + zao[0];
-      } else if (result_list.includes("zao_med")) {
-        if (oba) {
-          zao_itog = zao_start + zao[2];
-        } else {
-          zao_itog = "заострение " + zao[1];
-        }
-      }
-
-      let nadk_itog = "";
-      if (result_list.includes("zao_nadk")) {
-        if (oba) {
-          nadk_itog = nadk[1];
-        } else {
-          nadk_itog = nadk[0];
-        }
-      }
-
-      if (zao_itog != "") {
-        kray_itog += ", ";
-      }
-
-      if (nadk_itog != "") {
-        if (zao_itog != "") {
-          zao_itog += " и ";
-        } else {
-          kray_itog += ", заострения ";
-        }
-      }
-
-      let kkr = kray_itog + zao_itog + nadk_itog + ". ";
-
-      let scler_itog = "";
-      let scler_start = "Субхондральный склероз";
-
-      if (result_list.includes("upl")) {
-        if (oba) {
-          scler_itog = scler_start + ": " + scler[0] + " " + scler[3] + " " + scler[4] + " " + scler[8];
-        } else {
-          scler_itog = scler_start + ": " + scler[0] + " " + scler[1] + " " + scler[2] + " " + scler[7];
-        }
-      } else if (result_list.includes("podch")) {
-        if (oba) {
-          scler_itog = scler_start + ": " + scler[13] + " " + scler[4] + " " + scler[8];
-        } else {
-          scler_itog = scler_start + ": " + scler[12] + " " + scler[2] + " " + scler[7];
-        }
-      } else if (result_list.includes("sub")) {
-        if (oba) {
-          scler_itog = scler_start + " " + scler[4] + " " + scler[8];
-        } else {
-          scler_itog = scler_start + " " + scler[2] + " " + scler[7];
-        }
-      } else if (result_list.includes("bol_bedr_def")) {
-        if (oba) {
-          scler_itog = scler_start + ", " + scler[5] + " " + scler[14];
-        } else {
-          scler_itog = scler_start + ", " + scler[11] + " " + scler[2] + " " + scler[7];
-        }
-      } else if (result_list.includes("def")) {
-        if (oba) {
-          scler_itog = scler_start + ", " + scler[5] + " " + scler[4] + " " + scler[8];
-        } else {
-          scler_itog = scler_start + ", " + scler[11] + " " + scler[2] + " " + scler[7];
-        }
-      } else if (result_list.includes("plos")) {
-        if (oba) {
-          scler_itog = scler_start + ", " + scler[9] + " " + scler[4] + " " + scler[8];
-        } else {
-          scler_itog = scler_start + ", " + scler[10] + " " + scler[2] + " " + scler[7];
-        }
-      } else {
-        scler_itog = scler_start + " " + scler[6];
-      }
-
-      scler_itog += ". "
-
-
-      let conclusion_itog = "";
-      let conclusion_start = "Заключение: "
-      let knee_side;
-      let knee_side_arthro;
-
-      if (oba) {
-        knee_side = conclusion[7];
-        knee_side_arthro = conclusion[8];
-      } else if (result_list.includes("left_2x")) {
-        knee_side = conclusion[5];
-        knee_side_arthro = conclusion[6];
-      } else {
-        knee_side = conclusion[4];
-        knee_side_arthro = conclusion[6];
-      }
-
-      if (result_list.includes("nach")) {
-        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[1] + " " + knee_side + " " + knee_side_arthro + ". ";
-      } else if (result_list.includes("IV")) {
-        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[3] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[12] + " " + conclusion[13];
-      } else if (result_list.includes("III")) {
-        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[3] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[11] + " " + conclusion[13];
-      } else if (result_list.includes("II")) {
-        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[2] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[10] + " " + conclusion[13];
-      } else if (result_list.includes("I")) {
-        conclusion_itog = conclusion_start + conclusion[0] + " " + conclusion[2] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[9] + " " + conclusion[13];
-      } else {
-        conclusion_itog = conclusion_start + conclusion[14] + " " + knee_side + " " + knee_side_arthro + " " + conclusion[15];
-      }
-
-      conclusion_itog += ". "
-
+      document.getElementById("show").innerText = result_list;
 
       // pro_okno = document.getElementById("pro").innerHTML;
-      document.getElementById("show").innerText = proekcia_itog + kti + min_itog + kong + shel_itog + kkr + scler_itog + conclusion_itog;
+
+    }
 
 
 
+    function copy_to_clipboard(show) {
+      document.getElementById(show).select();
+      document.execCommand('copy');
     }
 
 
@@ -255,7 +59,6 @@
     <div id="form_item_1">
 
 
-
       <form id="form_48871" class="appnitro" method="post" action="">
         <div class="form_description">
           <h2>Коленный сустав</h2>
@@ -267,54 +70,47 @@
 
           <div class="my_card">
             <select class="form-control" id="list" name="list" multiple>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎ПРОЕКЦИЯ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎</option>
-              <option value="left_2x">ЛЕВ 2х</option>
-              <option value="left_right_1x">ОБА 1х</option>
-              <option value="left_right_2x">ОБА 2х</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪▪▪︎▪︎МИНЕРАЛЬНАЯ▪︎▪︎▪︎▪▪︎▪︎▪▪︎▪︎</option>
-              <option value="min_min">мин снижена</option>
-              <option value="min_um">ум снижена</option>
-              <option value="min_sniz">снижена</option>
-              <option value="min_vir">выр снижена</option>
-              <option disabled>▪︎▪︎▪︎▪▪︎▪︎СУСТАВНАЯ ЩЕЛЬ▪︎▪︎▪︎▪▪︎▪︎</option>
-              <option value="shel_leg">легко сужена</option>
-              <option value="shel_um">ум сужена</option>
-              <option value="shel_suz">сужена</option>
-              <option value="shel_vir">выр сужена</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎КРАЕВЫЕ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
-              <option value="kray_viz">краевые виз</option>
-              <option value="kray_min">краевые мин</option>
-              <option value="kray_um">краевые ум</option>
-              <option value="kray_vir">краевые выр</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎ЗАОСТРЕНИЯ▪︎▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
-              <option value="zao_mezh">зао межмыщ</option>
-              <option value="zao_med">зао мед межмыщ</option>
-              <option value="zao_nadk">по краям надк</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎СУБХ СКЛЕРОЗ▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
-              <option value="podch">подчёркнута</option>
-              <option value="upl">уплотнение</option>
-              <option value="sub">суб склероз</option>
-              <option value="plos">суб склероз, уплощение</option>
-              <option value="def">суб склероз, деформация</option>
-              <option value="bol_bedr_def">суб склер, деф больш и бедр</option>
-              <option disabled>▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎ЗАКЛЮЧЕНИЕ▪︎▪︎▪︎▪︎▪︎▪︎▪▪︎▪︎</option>
-              <option value="nach">НАЧ</option>
-              <option value="I">I</option>
-              <option value="II">II</option>
-              <option value="III">III</option>
-              <option value="IV">IV</option>
+              <option value="На обзорных рентгенограммах левого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей легко снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель легко сужена в медиальном отделе. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Умеренные краевые костные разрастания. Заключение: рентген-признаки остеоартроза левого коленного сустава I стадии (по J. Kellgren & J. Lawrence).">остеоартроз 1 левый</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей умеренно снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель выражено сужена в медиальном отделе. Краевые костные разрастания визуализируются, заострения межмыщелковых возвышений и по краям надколенника. Субхондральный склероз и деформация медиального мыщелка большеберцовой кости. Субхондральные кисты большеберцовой кости. Заключение: рентген-признаки остеоартроза правого коленного сустава III стадии (по J. Kellgren & J. Lawrence).">остеоартроз 3</option>
+                
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель выражено сужена в медиальном отделе. Краевые костные разрастания визуализируются, заострения межмыщелковых возвышений и по краям надколенника. Субхондральный склероз и деформация медиального мыщелка большеберцовой кости. Обызвествление в месте прикрепления четырехглавой мышцы бедра к надколеннику. Заключение: рентген-признаки остеоартроза правого коленного сустава II-III стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2-3 четырехглавой</option>
+  
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель сужена в медиальном отделе. Краевые костные разрастания визуализируются. Субхондральный склероз и уплощение медиального мыщелка большеберцовой кости. Субхондральные кисты большеберцовой кости. Обызвествление в месте прикрепления четырехглавой мышцы бедра к надколеннику. Обызвествление стенок сосудов. Заключение: рентген-признаки остеоартроза правого коленного сустава II-III стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2-3 четырехглавой обызвествление сосудов</option>
+
+              <option value="На обзорных рентгенограммах левого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель легко сужена в медиальном отделе. Краевые костные разрастания минимальные, заострения межмыщелковых возвышений. Подчеркнута суставная поверхность медиального мыщелка большеберцовой кости. Обызвествление в месте прикрепления четырехглавой мышцы бедра к надколеннику. Заключение: рентген-признаки остеоартроза левого коленного сустава I стадии (по J. Kellgren & J. Lawrence).">остеоартроз 1 четырехглавой</option>
+
+              <option value="На контрольных рентгенограммах правого коленного сустава в двух проекциях определяется состояние после МОС большеберцовой кости по поводу перелома средней трети диафиза с признаками консолидации. Консолидированный перелом средней трети диафиза малоберцовой кости. Положение компонентов МОС и стояние костных отломков удовлетворительное. Минеральная плотность костей снижена, наиболее выражено в проксимальном метаэпифизе и метадиафизе большеберцовой кости. Рентгеновская суставная щель легко сужена в медиальном отделе. Минимальные краевые костные разрастания. Подчеркнута суставная поверхность медиального мыщелка большеберцовой кости. Заострения межмыщелковых возвышений.">контроль мос</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических, деструктивных и дегенеративно-дистрофических изменений не выявлено.">трав дестр дег не выявлено</option>
+
+              <option value="На обзорных рентгенограммах левого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель не сужена. Краевые костные разрастания не визуализируются. Субхондральный склероз не определяется.">трав деструк не выявлено</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель умеренно сужена в медиальном отделе. Краевые костные разрастания визуализируются. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Уплотнена связка надколенника. Заключение: рентген-признаки остеоартроза правого коленного сустава II стадии (по J. Kellgren & J. Lawrence), уплотнения связки надколенника.">остеоартроз 2 уплотнение связки надколенника</option>
+
+              <option value="На обзорных рентгенограммах левого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель сужена в медиальном отделе. Краевые костные разрастания визуализируются, заострения межмыщелковых возвышений и по краям надколенника. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Обызвествление стенок сосудов. Воздух в проекции медиального мениска. Заключение: рентген-признаки остеоартроза левого коленного сустава II-III стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2-3 обызвествление сосудов воздух мед мениск</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей умеренно снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель сужена в медиальном отделе. Краевые костные разрастания визуализируются. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Заключение: рентген-признаки остеоартроза правого коленного сустава II стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2</option>
+
+              <option value="На контрольных рентгенограммах левого коленного сустава в гипсе определяется внутрисуставной перелом наружного мыщелка со смещением отломков по ширине до 3мм. Перелом проксимального метадиафиза малоберцовой кости с угловым смещением отломков и по ширине до 4мм. Линия перелома сохраняется. Минеральная плотность костей снижена.">контроль в гипсе внутрисуставной перелом</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель сужена в медиальном отделе. Краевые костные разрастания визуализируются, заострение медиального межмыщелкового возвышения. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Субхондральные кисты большеберцовой кости. Воздух в проекции медиального мениска. Обызвествление в месте прикрепления четырехглавой мышцы бедра к надколеннику. Обызвествление медиального и латерального менисков (посттравматического генеза?). Заключение: рентген-признаки остеоартроза правого коленного сустава II стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2 воздух четырехглавой обызвествление менисков</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей умеренно снижена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель сужена в медиальном отделе. Краевые костные разрастания визуализируются, заострения межмыщелковых возвышений. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Заключение: рентген-признаки остеоартроза правого коленного сустава II стадии (по J. Kellgren & J. Lawrence).">остеоартроз 2</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель минимально сужена в медиальном отделе. Небольшие заострения межмыщелковых возвышений. Подчеркнута суставная поверхность медиального мыщелка большеберцовой кости. Заключение: рентген-признаки начальных проявлений остеоартроза правого коленного сустава.">остеоартроз начальные</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель легко сужена в медиальном отделе. Краевые костные разрастания минимальные, заострение медиального межмыщелкового возвышения и по краям надколенника. Уплотнение суставной поверхности медиального мыщелка большеберцовой кости. Субхондральные кисты большеберцовой кости. Заключение: рентген-признаки остеоартроза правого коленного сустава I-II стадии (по J. Kellgren & J. Lawrence).">остеоартроз 1-2</option>
+
+              <option value="На обзорных рентгенограммах правого коленного сустава в двух проекциях рентген-признаков костных травматических и деструктивных изменений не выявлено. Минеральная плотность костей сохранена. Суставные поверхности конгруэнтные. Рентгеновская суставная щель не сужена. Субхондральный склероз не определяется. Краевые костные разрастания не визуализируются. Признаки фрагментации бугристости большеберцовой кости. Заключение: рентген-признаки остеохондропатии бугристости большеберцовой кости.">остеохондропатия фрагментация бугристости</option>
+
             </select>
           </div>
 
         </div>
 
 
-
-
-
-
       </form>
-
 
 
     </div>
@@ -330,32 +126,30 @@
         <nav class="page__menu menu">
           <ul class="menu__list r-list">
             <li class="menu__group"><a href="thorax.html" class="menu__link r-link text-underlined">ОГК</a></li>
-            <li class="menu__group"><a href="knee.html" class="menu__link r-link text-underlined">КОЛЕНО</a></li>
-            <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">#</a></li>
-            <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">#</a></li>
-            <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">#</a></li>
+            <li class="menu__group"><a href="knee.html" class="menu__link r-link text-underlined">КОЛ</a></li>
+            <li class="menu__group"><a href="ankle.html" class="menu__link r-link text-underlined">ГОЛ</a></li>
+            <li class="menu__group"><a href="hip.html" class="menu__link r-link text-underlined">ТБС</a></li>
+            <li class="menu__group"><a href="wrist.html" class="menu__link r-link text-underlined">ЛУЧ</a></li>
+          </ul>
+            <ul class="menu__list r-list">
+            <li class="menu__group"><a href="shoulder.html" class="menu__link r-link text-underlined">ПЛЕЧ</a></li>
+            <li class="menu__group"><a href="cervicalis.html" class="menu__link r-link text-underlined">ШОП</a></li>
+            <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">ГОП</a></li>
+            <li class="menu__group"><a href="lumbalis.html" class="menu__link r-link text-underlined">ПОП</a></li>
           </ul>
         </nav>
       </div>
+      <br>
 
+
+      <textarea variable="yname" id="show" class="mytextarea" rows="18" cols="56"></textarea>
 
       <li class="buttons">
-        <input type="hidden" name="form_id" value="48871" />
-        <input id="saveForm" class="button_text" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+        <input id="saveForm" class="my_btn-new" type="submit" name="submit" value="Вывод" onclick="testVariable()" />
+        <input type="button" class="my_btn-new" value="Скопировать" onclick="copy_to_clipboard('show');">
       </li>
 
-
-
-
-      <textarea variable="yname" id="show" class="mytextarea" rows="20" cols="70"></textarea>
-
-
-
-
     </div>
-
-
-
 
 
 
@@ -375,14 +169,14 @@
       searchBox: true,
       width: '700px',
       height: '80px',
+      // readOnly: true,
       onChange: function (checked, value, instance) {
         console.log(checked, value, instance);
       },
       // appendTo: '#myselect',
-      //readOnly:true,
       autoHide: false
     }
-  );
+  )
 
 
 
